@@ -3,149 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The TravelButton | Live Asset Stream</title>
+    <title>The TravelButton | Professional Stream</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* LUXURY BRAND CANVAS */
-        :root {
-            --bg-cream: #FFFBF2;
-            --text-brown: #854D0E;
-            --accent-amber: #D97706;
-            --charcoal: #1F2937;
-            --white: #FFFFFF;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: var(--bg-cream); color: var(--charcoal); padding: 40px 20px; }
-        .container { max-width: 1100px; margin: 0 auto; }
-
-        /* HERO HEADER */
-        header { margin-bottom: 40px; border-bottom: 2px solid rgba(133, 77, 14, 0.1); padding-bottom: 25px; }
-        h1 { color: var(--text-brown); font-size: 2.6rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 6px; }
-        .subtitle { color: var(--accent-amber); font-size: 1.1rem; font-weight: 500; }
-
-        /* INTERACTIVE FILTER TABS */
-        .filter-tabs { display: flex; gap: 12px; margin-bottom: 35px; flex-wrap: wrap; }
-        .tab {
-            background: var(--white);
-            border: 1px solid rgba(133, 77, 14, 0.15);
-            color: var(--charcoal);
-            padding: 10px 22px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-        .tab.active, .tab:hover { background-color: var(--text-brown); color: var(--bg-cream); border-color: var(--text-brown); }
-
-        /* PREMIUM DIRECTORY GRID */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
-        .card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(133, 77, 14, 0.02);
-            border: 1px solid rgba(133, 77, 14, 0.06);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(133, 77, 14, 0.08); }
-        
-        .card-img { width: 100%; height: 180px; object-fit: cover; background-color: #EAE5D9; }
-        .card-content { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
-        .card-pillar { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--accent-amber); margin-bottom: 10px; }
-        .card-title { font-size: 1.4rem; font-weight: 700; color: var(--text-brown); margin-bottom: 12px; line-height: 1.3; }
-        .card-context { font-size: 0.95rem; color: var(--charcoal); line-height: 1.6; }
-
-        @media (max-width: 640px) { h1 { font-size: 2.1rem; } .grid { grid-template-columns: 1fr; } }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #FFFBF2; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
     </style>
 </head>
-<body>
+<body class="p-4 md:p-10">
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-12 border-b border-amber-900/10 pb-8">
+            <h1 class="text-5xl font-bold text-amber-900 tracking-tighter mb-2">The TravelButton</h1>
+            <p class="text-amber-600 font-medium tracking-wide">Live Asset Stream • Flights • Rents • Events • Hype</p>
+        </header>
 
-<div class="container">
-    <header>
-        <h1>The TravelButton</h1>
-        <div class="subtitle">Flights • Rents • Events • Search Hype — Tracked Live.</div>
-    </header>
-
-    <div class="filter-tabs" id="tabs-container">
-        <div class="tab active" onclick="filterPillar(event, 'all')">All Stream</div>
-        <div class="tab" onclick="filterPillar(event, 'Flights')">Flights</div>
-        <div class="tab" onclick="filterPillar(event, 'Rents')">Rents</div>
-        <div class="tab" onclick="filterPillar(event, 'Events')">Events</div>
-        <div class="tab" onclick="filterPillar(event, 'Search Hype')">Search Hype</div>
+        <div id="data-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
     </div>
 
-    <div class="grid" id="data-grid">
-        </div>
-</div>
+    <script>
+        const AIRTABLE_BASE_ID = 'appXGvgjygSmeuUCT'; 
+        const AIRTABLE_TABLE_NAME = 'Alerts'; 
+        const AIRTABLE_API_TOKEN = 'patzQKUo0MsGdjP0Q.f082f837a473a6bdfa9903d4c8d16b591a27a8f48b17db02eddec028471374a6';
 
-<script>
-    const AIRTABLE_BASE_ID = 'appXGvgjygSmeuUCT'; 
-    const AIRTABLE_TABLE_NAME = 'Alerts'; 
-    const AIRTABLE_API_TOKEN = 'patzQKUo0MsGdjP0Q.f082f837a473a6bdfa9903d4c8d16b591a27a8f48b17db02eddec028471374a6';
-
-    let allRecords = [];
-
-    async function fetchLiveAlerts() {
-        const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`;
-        try {
-            const response = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_API_TOKEN}` } });
-            const data = await response.json();
-            allRecords = data.records;
-            renderCards(allRecords);
-        } catch (error) {
-            document.getElementById('data-grid').innerHTML = '<p>Connecting to secure sync asset stream...</p>';
-        }
-    }
-
-    function renderCards(records) {
-        const grid = document.getElementById('data-grid');
-        grid.innerHTML = '';
-        
-        // Filter out completely blank ghost rows from Airtable
-        const validRecords = records.filter(r => r.fields.Title || r.fields.Notes);
-
-        if (validRecords.length === 0) {
-            grid.innerHTML = '<p>No active anomalies reported in this branch stream.</p>';
-            return;
-        }
-
-        validRecords.forEach(record => {
-            const fields = record.fields;
-            const card = document.createElement('div');
-            card.className = 'card';
+        async function fetchLiveAlerts() {
+            const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`;
+            const res = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_API_TOKEN}` } });
+            const data = await res.json();
+            const grid = document.getElementById('data-grid');
+            grid.innerHTML = '';
             
-            const imageHTML = fields.Graphic_URL ? `<img src="${fields.Graphic_URL}" class="card-img" alt="Asset Image">` : '';
-
-            card.innerHTML = `
-                ${imageHTML}
-                <div class="card-content">
-                    <div class="card-pillar">${fields.Pillar || 'General Asset'}</div>
-                    <div class="card-title">${fields.Title || 'Untitled Flash'}</div>
-                    <div class="card-context">${fields.Notes || ''}</div>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
-    }
-
-    function filterPillar(event, pillarName) {
-        const tabs = document.querySelectorAll('.tab');
-        tabs.forEach(tab => tab.classList.remove('active'));
-        event.target.classList.add('active');
-
-        if (pillarName === 'all') {
-            renderCards(allRecords);
-        } else {
-            const filtered = allRecords.filter(record => record.fields.Pillar === pillarName);
-            renderCards(filtered);
+            data.records.forEach(r => {
+                const f = r.fields;
+                grid.innerHTML += `
+                    <div class="glass rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-amber-900/5">
+                        ${f.Graphic_URL ? `<img src="${f.Graphic_URL}" class="w-full h-56 object-cover">` : ''}
+                        <div class="p-8">
+                            <span class="text-[10px] font-bold tracking-widest uppercase text-orange-600">${f.Pillar || 'Update'}</span>
+                            <h2 class="text-2xl font-bold text-amber-950 mt-2 mb-4 tracking-tight">${f.Title}</h2>
+                            <p class="text-amber-800/80 leading-relaxed">${f.Notes || ''}</p>
+                        </div>
+                    </div>
+                `;
+            });
         }
-    }
-
-    fetchLiveAlerts();
-</script>
-
+        fetchLiveAlerts();
+    </script>
 </body>
 </html>
