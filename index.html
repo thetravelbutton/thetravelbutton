@@ -7,15 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #FFFBF2; }
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFA; color: #1A1A1A; }
     </style>
 </head>
 <body class="p-4 md:p-10">
     <div class="max-w-6xl mx-auto">
-        <header class="mb-12 border-b border-amber-900/10 pb-8">
-            <h1 class="text-5xl font-bold text-amber-900 tracking-tighter mb-2">The TravelButton</h1>
-            <p class="text-amber-600 font-medium tracking-wide">Live Asset Stream • Flights • Rents • Events • Hype</p>
+        <header class="mb-12 border-b border-gray-200 pb-8">
+            <h1 class="text-5xl font-bold text-gray-900 tracking-tighter mb-2">The TravelButton</h1>
+            <p class="text-blue-600 font-semibold tracking-wide uppercase text-xs">Live Asset Stream • Flights • Rents • Events • Hype</p>
         </header>
 
         <div id="data-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -37,12 +36,12 @@
             data.records.forEach(r => {
                 const f = r.fields;
                 grid.innerHTML += `
-                    <div class="glass rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-amber-900/5">
+                    <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
                         ${f.Graphic_URL ? `<img src="${f.Graphic_URL}" class="w-full h-56 object-cover">` : ''}
                         <div class="p-8">
-                            <span class="text-[10px] font-bold tracking-widest uppercase text-orange-600">${f.Pillar || 'Update'}</span>
-                            <h2 class="text-2xl font-bold text-amber-950 mt-2 mb-4 tracking-tight">${f.Title}</h2>
-                            <p class="text-amber-800/80 leading-relaxed">${f.Notes || ''}</p>
+                            <span class="text-[10px] font-bold tracking-widest uppercase text-blue-600">${f.Pillar || 'Update'}</span>
+                            <h2 class="text-2xl font-bold text-gray-950 mt-2 mb-4 tracking-tight">${f.Title || 'Untitled'}</h2>
+                            <p class="text-gray-600 leading-relaxed">${f.Notes || ''}</p>
                         </div>
                     </div>
                 `;
