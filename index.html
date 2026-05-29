@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The TravelButton | Cross-Border Intelligence Directory</title>
-    <!-- Tailwind CSS Dynamic Integration -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -13,12 +12,12 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#f0f7ff',
-                            100: '#e0effe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            950: '#030712'
+                            50: '#f2fbf7',
+                            100: '#e2f7ed',
+                            500: '#10b981', /* Premium Emerald Sage Accent */
+                            600: '#059669',
+                            700: '#047857',
+                            950: '#022c22'
                         },
                         cyber: {
                             light: '#1e293b',
@@ -29,12 +28,10 @@
             }
         }
     </script>
-    <!-- Vector Icons and Typefaces -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Markdown Parser -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
@@ -59,8 +56,8 @@
         }
         .markdown-container p { margin-bottom: 0.75rem; }
         .markdown-container p:last-child { margin-bottom: 0; }
-        .markdown-container a { color: #3b82f6; text-decoration: underline; font-weight: 500; }
-        .markdown-container a:hover { color: #2563eb; }
+        .markdown-container a { color: #10b981; text-decoration: underline; font-weight: 500; }
+        .markdown-container a:hover { color: #059669; }
         .markdown-container ul, .markdown-container ol { margin-left: 1.25rem; margin-bottom: 0.75rem; list-style-type: disc; }
         .markdown-container li { margin-bottom: 0.25rem; }
         .markdown-container strong { font-weight: 700; }
@@ -75,16 +72,15 @@
         .dark .shimmer-effect::after {
             background-image: linear-gradient(90deg, rgba(15,23,42,0) 0%, rgba(15,23,42,0.1) 20%, rgba(255,255,255,0.05) 60%, rgba(15,23,42,0) 100%);
         }
-        .ai-glow { box-shadow: 0 0 15px rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.3); }
-        .dark .ai-glow { box-shadow: 0 0 25px rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2); }
+        .ai-glow { box-shadow: 0 0 15px rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3); }
+        .dark .ai-glow { box-shadow: 0 0 25px rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); }
         @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
         .animate-marquee { display: flex; width: max-content; animation: marquee 30s linear infinite; }
         .animate-marquee:hover { animation-play-state: paused; }
     </style>
 </head>
-<body class="bg-[#F8FAFC] text-[#0F172A] dark:bg-[#030712] dark:text-[#F3F4F6] min-h-screen antialiased flex flex-col selection:bg-brand-500 selection:text-white pb-12">
+<body class="bg-[#F4F7F5] text-[#0F172A] dark:bg-[#030712] dark:text-[#F3F4F6] min-h-screen antialiased flex flex-col selection:bg-brand-500 selection:text-white pb-12">
 
-    <!-- REAL-TIME GEOPOLITICAL LOG MARQUEE TICKER TAPE -->
     <div class="w-full bg-brand-600 dark:bg-brand-950/80 text-white text-[10px] mono-text font-bold py-2.5 overflow-hidden border-b border-brand-700/50 dark:border-brand-900/40 relative z-20">
         <div class="animate-marquee flex gap-12 items-center whitespace-nowrap">
             <span>📡 TRAVELBUTTON DIRECT DIAL ANOMALY: MILAN TO BAKU FARE RESET DEVIATION DETECTED (-42%)</span>
@@ -96,14 +92,12 @@
         </div>
     </div>
 
-    <div class="fixed top-0 left-1/4 w-96 h-96 bg-blue-500/10 dark:bg-blue-600/5 rounded-full blur-3xl pointer-events-none z-0"></div>
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-emerald-500/10 dark:bg-emerald-600/5 rounded-full blur-3xl pointer-events-none z-0"></div>
 
     <div class="max-w-6xl w-full mx-auto px-4 md:px-8 z-10 relative flex-grow">
         
-        <!-- HEADER / NAVIGATION HUB -->
         <header class="py-8 md:py-12 border-b border-gray-200/60 dark:border-gray-800/60 mb-8 md:mb-12">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-                <!-- Branding -->
                 <div>
                     <div class="flex items-center gap-3 mb-2">
                         <span class="inline-flex h-3 w-3 relative">
@@ -113,11 +107,10 @@
                         <span class="mono-text text-xs uppercase tracking-widest text-brand-600 dark:text-brand-500 font-semibold bg-brand-50 dark:bg-brand-950/40 px-2.5 py-1 rounded border border-brand-100 dark:border-brand-900/30">System Live • Transit Feeds</span>
                     </div>
                     <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tighter">
-                        The Travel<span class="text-brand-600 dark:text-brand-500">Button</span>
+                        The Travel<span class="text-brand-600 dark:text-brand-400">Button</span>
                     </h1>
                 </div>
 
-                <!-- Operations & Local AI Vault Config -->
                 <div class="flex items-center gap-3 self-start md:self-auto">
                     <button onclick="openKeyModal()" id="key-status-badge" class="flex items-center gap-2 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-rose-500/20 transition">
                         <i class="fa-solid fa-key"></i> <span id="key-status-text">AI Offline: Configure Key</span>
@@ -128,40 +121,35 @@
                 </div>
             </div>
 
-            <!-- Main Hub Introduction Grid: Alignment Adjusted with Hero on Top-Right -->
             <div class="grid md:grid-cols-12 gap-8 items-center">
-                <!-- Branding copy and navigation -->
                 <div class="md:col-span-7 space-y-5 order-2 md:order-1">
                     <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-light">
                         High-performance cross-border intelligence tracker. Logistical arbitrage, transit anomalies, corporate asset advantages, and travel hype delivered natively.
                     </p>
 
-                    <!-- Navigation Sub-Menu -->
                     <nav class="flex flex-wrap gap-2 md:gap-4 border-b border-gray-200/40 dark:border-gray-800/40 pb-2 w-max text-sm font-semibold text-gray-500 dark:text-gray-400">
-                        <button onclick="switchPage('stream')" id="nav-stream" class="tab-link active pb-2 relative text-brand-600 dark:text-brand-500 transition">
+                        <button onclick="switchPage('stream')" id="nav-stream" class="tab-link active pb-2 relative text-brand-600 dark:text-brand-400 transition">
                             Live Stream <span class="bg-brand-500/10 text-brand-600 dark:text-brand-400 text-[10px] px-1.5 py-0.5 rounded ml-1" id="alert-counter">...</span>
                         </button>
                         <button onclick="switchPage('ai-analyst')" id="nav-ai-analyst" class="tab-link pb-2 hover:text-brand-600 dark:hover:text-brand-400 transition">
-                            <i class="fa-solid fa-wand-magic-sparkles mr-1 text-blue-500"></i> AI Analyst
+                            <i class="fa-solid fa-wand-magic-sparkles mr-1 text-brand-500"></i> AI Analyst
                         </button>
                         <button onclick="switchPage('about')" id="nav-about" class="tab-link pb-2 hover:text-brand-600 dark:hover:text-brand-400 transition">About</button>
                         <button onclick="switchPage('contact')" id="nav-contact" class="tab-link pb-2 hover:text-brand-600 dark:hover:text-brand-400 transition">Contact HQ</button>
                     </nav>
 
-                    <!-- Core Social Pipelines Grid -->
                     <div class="flex flex-col gap-2 pt-2">
                         <span class="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-extrabold">Secure Communications Pipelines</span>
                         <div class="flex items-center gap-4 text-gray-400 dark:text-gray-500">
                             <a href="https://instagram.com/_thetravelbutton_" target="_blank" class="hover:text-pink-500 transition text-xl" title="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://t.me/thetravelbutton" target="_blank" class="hover:text-blue-400 transition text-xl" title="Telegram Channel"><i class="fab fa-telegram"></i></a>
-                            <a href="https://fb.com/thetravelbutton" target="_blank" class="hover:text-blue-600 transition text-xl" title="Facebook Page"><i class="fab fa-facebook"></i></a>
+                            <a href="https://t.me/thetravelbutton" target="_blank" class="hover:text-emerald-400 transition text-xl" title="Telegram Channel"><i class="fab fa-telegram"></i></a>
+                            <a href="https://fb.com/thetravelbutton" target="_blank" class="hover:text-emerald-600 transition text-xl" title="Facebook Page"><i class="fab fa-facebook"></i></a>
                             <a href="https://www.youtube.com/@TheTravelButton" target="_blank" class="hover:text-red-500 transition text-xl" title="YouTube Channel"><i class="fab fa-youtube"></i></a>
                             <a href="https://www.tiktok.com/@thetravelbutton" target="_blank" class="hover:text-zinc-900 dark:hover:text-white transition text-xl" title="TikTok Profile"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Premium Hero Graphic Element Top Right -->
                 <div class="md:col-span-5 order-1 md:order-2">
                     <div class="relative overflow-hidden rounded-3xl group border border-gray-200/50 dark:border-gray-800/50 shadow-2xl shadow-brand-500/5">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#030712]/75 via-transparent to-transparent z-10"></div>
@@ -175,10 +163,8 @@
             </div>
         </header>
 
-        <!-- MAIN PAGE: LIVE STREAM -->
         <main id="page-stream" class="page-content space-y-8">
             
-            <!-- SWIPEABLE HIGHLIGHTS SLIDER -->
             <div class="space-y-3">
                 <div class="flex items-center justify-between">
                     <span class="text-xs uppercase tracking-widest text-brand-600 dark:text-brand-400 font-extrabold flex items-center gap-1.5">
@@ -191,15 +177,11 @@
                 </div>
             </div>
 
-            <!-- Filter Hub & Search Bar -->
             <div class="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between bg-white dark:bg-gray-900/30 border border-gray-200/40 dark:border-gray-800/40 p-4 rounded-2xl shadow-sm">
-                <!-- Static & Dynamic Pillar Filtering chips -->
                 <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="filter-container">
                     <button onclick="setFilter('ALL')" class="filter-chip px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-brand-600 text-white border border-brand-600 shadow-md">All Nodes</button>
-                    <!-- Pillars (Flights, Rents, Events, Search Hype) will be injected here -->
                 </div>
                 
-                <!-- Search Component -->
                 <div class="relative min-w-[280px]">
                     <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 pointer-events-none">
                         <i class="fa-solid fa-magnifying-glass text-sm"></i>
@@ -208,7 +190,6 @@
                 </div>
             </div>
 
-            <!-- Loader indicator states -->
             <div id="skeleton-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white dark:bg-gray-900/40 rounded-3xl border border-gray-100 dark:border-gray-800/50 p-6 space-y-4">
                     <div class="h-44 w-full bg-gray-200 dark:bg-gray-800/60 rounded-xl shimmer-effect relative overflow-hidden"></div>
@@ -222,28 +203,19 @@
                     <div class="h-6 w-3/4 bg-gray-200 dark:bg-gray-800/60 rounded shimmer-effect relative overflow-hidden"></div>
                     <div class="h-10 w-full bg-gray-200 dark:bg-gray-800/60 rounded shimmer-effect relative overflow-hidden"></div>
                 </div>
-                <div class="bg-white dark:bg-gray-900/40 rounded-3xl border border-gray-100 dark:border-gray-800/50 p-6 space-y-4">
-                    <div class="h-44 w-full bg-gray-200 dark:bg-gray-800/60 rounded-xl shimmer-effect relative overflow-hidden"></div>
-                    <div class="h-4 w-1/4 bg-gray-200 dark:bg-gray-800/60 rounded shimmer-effect relative overflow-hidden"></div>
-                    <div class="h-6 w-3/4 bg-gray-200 dark:bg-gray-800/60 rounded shimmer-effect relative overflow-hidden"></div>
-                    <div class="h-10 w-full bg-gray-200 dark:bg-gray-800/60 rounded shimmer-effect relative overflow-hidden"></div>
-                </div>
             </div>
 
-            <!-- Error panel -->
             <div id="error-panel" class="hidden max-w-lg mx-auto bg-rose-500/10 border border-rose-500/20 text-rose-600 p-6 rounded-2xl text-center space-y-4">
                 <i class="fa-solid fa-triangle-exclamation text-3xl"></i>
                 <h3 class="text-lg font-bold">Sync Failure</h3>
-                <p class="text-xs opacity-90 leading-relaxed"> স্ট্যান্ডার্ড এপিআই পোর্টাল সিঙ্ক ফেইল করেছে। Operating with standard localization caches.</p>
+                <p class="text-xs opacity-90 leading-relaxed">The main server connection could not be established. Operating with standard localization caches.</p>
                 <button onclick="triggerDataSync()" class="inline-flex items-center gap-2 px-4 py-2 bg-rose-600 text-white rounded-xl text-xs font-semibold hover:bg-rose-700 transition">
                     <i class="fa-solid fa-rotate"></i> Reload System Feed
                 </button>
             </div>
 
-            <!-- Main Data Stream Feed Grid -->
             <div id="data-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden"></div>
 
-            <!-- Zero Search Results State -->
             <div id="no-results" class="hidden text-center py-16 space-y-4">
                 <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-100 dark:bg-gray-800 text-gray-400">
                     <i class="fa-solid fa-hourglass-empty text-xl"></i>
@@ -253,14 +225,12 @@
             </div>
         </main>
 
-        <!-- MAIN PAGE: AI ANALYST TERMINAL -->
         <main id="page-ai-analyst" class="page-content hidden space-y-6">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
-                <!-- Controller layout -->
                 <div class="lg:col-span-5 bg-white dark:bg-gray-900/40 p-6 rounded-3xl border border-gray-200/50 dark:border-gray-800/50 shadow-xl space-y-6 ai-glow">
                     <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-blue-500/10 text-blue-500 rounded-xl flex items-center justify-center">
+                        <div class="h-10 w-10 bg-emerald-500/10 text-brand-500 rounded-xl flex items-center justify-center">
                             <i class="fa-solid fa-brain-circuit text-lg"></i>
                         </div>
                         <div>
@@ -278,7 +248,6 @@
                         <span class="font-bold text-brand-600 dark:text-brand-400 mono-text"><span id="ai-context-count">0</span> Nodes Ingested</span>
                     </div>
 
-                    <!-- Tactical preset shortcuts -->
                     <div class="space-y-3">
                         <h3 class="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold">Orbital Tactical Presets</h3>
                         
@@ -305,7 +274,6 @@
                         </button>
                     </div>
 
-                    <!-- Custom Terminal Query Input -->
                     <div class="space-y-2 border-t border-gray-200/40 dark:border-gray-800/40 pt-4">
                         <label for="ai-custom-prompt" class="block text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold">Custom Tactical Query</label>
                         <div class="relative">
@@ -317,11 +285,10 @@
                     </div>
                 </div>
 
-                <!-- Right output screen -->
                 <div class="lg:col-span-7 space-y-4">
                     <div class="flex justify-between items-center bg-white dark:bg-gray-900/20 p-4 border border-gray-200/50 dark:border-gray-800/50 rounded-2xl text-xs">
                         <div class="flex items-center gap-2">
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
                             <span class="font-bold mono-text text-gray-800 dark:text-gray-200">Terminal Log Output</span>
                         </div>
                         <button onclick="copyTerminalOutput()" class="text-[10px] font-bold text-brand-600 dark:text-brand-400 hover:underline" id="btn-copy-terminal" disabled>Copy Terminal Output</button>
@@ -347,7 +314,6 @@
             </div>
         </main>
 
-        <!-- MAIN PAGE: ABOUT -->
         <main id="page-about" class="page-content hidden">
             <div class="max-w-3xl bg-white dark:bg-gray-900/40 p-6 md:p-10 rounded-3xl border border-gray-200/50 dark:border-gray-800/50 shadow-xl space-y-6">
                 <div class="inline-flex items-center justify-center p-3 bg-brand-500/10 text-brand-600 dark:text-brand-400 rounded-2xl">
@@ -359,7 +325,6 @@
             </div>
         </main>
 
-        <!-- MAIN PAGE: CONTACT -->
         <main id="page-contact" class="page-content hidden">
             <div class="max-w-3xl bg-white dark:bg-gray-900/40 p-6 md:p-10 rounded-3xl border border-gray-200/50 dark:border-gray-800/50 shadow-xl space-y-6">
                 <div class="inline-flex items-center justify-center p-3 bg-brand-500/10 text-brand-600 dark:text-brand-400 rounded-2xl">
@@ -380,7 +345,6 @@
         </main>
     </div>
 
-    <!-- PERSISTENT DETAIL DRAWER (SLIDE-OVER MECHANISM) -->
     <div id="alert-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" role="dialog" aria-modal="true">
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute inset-0 bg-[#030712]/50 backdrop-blur-sm transition-opacity" onclick="closeDrawer()"></div>
@@ -406,14 +370,12 @@
                             </div>
                         </div>
 
-                        <!-- Body Contents -->
                         <div class="relative flex-1 py-6 px-6 md:px-8 space-y-6">
                             <div class="space-y-3">
                                 <h3 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 font-extrabold">Intel Briefing</h3>
                                 <div id="drawer-notes" class="markdown-container text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light"></div>
                             </div>
 
-                            <!-- Travelpayouts Partner Booking Action Panel -->
                             <div class="border-t border-gray-200/40 dark:border-gray-800/40 pt-6 space-y-3">
                                 <h3 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 font-extrabold">Partner Travelpayouts Interface</h3>
                                 <a id="drawer-affiliate-btn" href="#" target="_blank" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold text-center flex items-center justify-center gap-2 shadow-lg transition-all">
@@ -422,20 +384,18 @@
                                 <p class="text-[9px] text-gray-400 text-center leading-relaxed">Bypasses secondary routing fees to secure immediate booking rates.</p>
                             </div>
 
-                            <!-- Single Alert Gemini Optimizer Engine -->
                             <div class="border-t border-gray-200/40 dark:border-gray-800/40 pt-6 space-y-4">
                                 <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-wand-magic-sparkles text-blue-500"></i>
+                                    <i class="fa-solid fa-wand-magic-sparkles text-brand-500"></i>
                                     <h3 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 font-extrabold">AI Tactician Optimization</h3>
                                 </div>
-                                <div id="drawer-ai-block" class="bg-blue-500/5 dark:bg-blue-600/5 p-4 rounded-2xl border border-blue-500/10 dark:border-blue-900/20 space-y-3">
+                                <div id="drawer-ai-block" class="bg-emerald-500/5 dark:bg-emerald-600/5 p-4 rounded-2xl border border-brand-500/10 dark:border-brand-900/20 space-y-3">
                                     <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-normal">Analyze this specific node dynamically to generate structured mitigation parameters.</p>
                                     <button onclick="triggerSingleAlertAI()" id="btn-single-ai" class="w-full py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition shadow">
                                         Generate AI Strategy Report
                                     </button>
 
-                                    <!-- AI Response Container -->
-                                    <div id="drawer-ai-result-panel" class="hidden space-y-3 pt-3 border-t border-blue-500/10">
+                                    <div id="drawer-ai-result-panel" class="hidden space-y-3 pt-3 border-t border-emerald-500/10">
                                         <div class="flex justify-between items-center text-[10px] mono-text text-brand-500">
                                             <span class="font-bold">✨ Tactical Evaluation Log</span>
                                             <button onclick="copyDrawerAIContent()" class="hover:underline flex items-center gap-1"><i class="fa-regular fa-clipboard"></i> Copy AI Plan</button>
@@ -460,16 +420,15 @@
         </div>
     </div>
 
-    <!-- SECURE LOCAL KEY VAULT CONFIG MODAL -->
     <div id="key-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeKeyModal()"></div>
         <div class="bg-white dark:bg-gray-900 rounded-3xl border border-gray-200 dark:border-gray-800 p-6 max-w-md w-full relative z-10 shadow-2xl space-y-4">
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2"><i class="fa-solid fa-key text-blue-500"></i> Local API Token Vault</h3>
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2"><i class="fa-solid fa-key text-brand-500"></i> Local API Token Vault</h3>
             <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                 To protect developer credit limits, this console requires your personal, free Google Gemini API Key. Your token is stored **locally inside your browser cache only** and is never sent to our repositories.
             </p>
-            <div class="p-3 bg-blue-500/5 border border-blue-500/10 rounded-xl text-[11px] text-blue-600 dark:text-blue-400">
-                👉 Don't have a key? Get one totally free in 30 seconds at: <a href="https://aistudio.google.com/" target="_blank" class="underline font-bold hover:text-blue-700">Google AI Studio</a>
+            <div class="p-3 bg-brand-500/5 border border-brand-500/10 rounded-xl text-[11px] text-brand-600 dark:text-brand-400">
+                👉 Don't have a key? Get one totally free in 30 seconds at: <a href="https://aistudio.google.com/" target="_blank" class="underline font-bold hover:text-brand-700">Google AI Studio</a>
             </div>
             <div class="space-y-1">
                 <label class="block text-[10px] uppercase font-bold text-gray-400">Gemini API Key String</label>
@@ -482,30 +441,34 @@
         </div>
     </div>
 
-    <!-- AIRTABLE CONFIG & INTERACTIVE JAVASCRIPT LOGIC -->
+    <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+
     <script>
+        const AIRTABLE_BASE_ID = 'appXGvgjygSmeuUCT'; 
+        const AIRTABLE_TABLE_NAME = 'Alerts'; 
+        const AIRTABLE_API_TOKEN = 'patzQKUo0MsGdjP0Q.f082f837a473a6bdfa9903d4c8d16b591a27a8f48b17db02eddec028471374a6';
+        
         const THEME_STORAGE_KEY = 'thetravelbutton-theme';
         const AI_KEY_STORAGE_KEY = 'thetravelbutton-user-api-key';
 
         let allAlerts = [];
         let filteredAlerts = [];
-        let uniquePillars = ['Flights', 'Rents', 'Events', 'Search Hype']; // Guaranteed requested pillars
+        let uniquePillars = ['Flights', 'Rents', 'Events', 'Search Hype']; 
         let activeFilter = 'ALL';
         let searchQuery = '';
         let countdownTime = 60;
         let timerInterval = null;
+        let currentlyOpenRecord = null;
 
-        // Dynamic theme fallback color palettes matching the explicit user request pillars
         const pillarGradients = {
-            'flights': 'from-blue-600 to-cyan-500',
-            'rents': 'from-purple-600 to-indigo-500',
-            'events': 'from-pink-600 to-rose-500',
-            'search hype': 'from-amber-500 to-orange-600',
-            'hype': 'from-amber-500 to-orange-600',
+            'flights': 'from-emerald-600 to-teal-500',
+            'rents': 'from-teal-600 to-cyan-600',
+            'events': 'from-emerald-700 to-green-600',
+            'search hype': 'from-green-600 to-emerald-500',
+            'hype': 'from-green-600 to-emerald-500',
             'default': 'from-slate-700 to-slate-900'
         };
 
-        // Initialize App
         function initApp() {
             initTheme();
             checkSavedKeyStatus();
@@ -513,7 +476,6 @@
             startAutoPolling();
         }
 
-        // Initialize theme selector
         function initTheme() {
             const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
             const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -539,7 +501,6 @@
             }
         }
 
-        // Secure credential validation
         function checkSavedKeyStatus() {
             const savedKey = localStorage.getItem(AI_KEY_STORAGE_KEY);
             const badge = document.getElementById('key-status-badge');
@@ -578,7 +539,19 @@
             showToast("Encryption keys deleted successfully.", "success");
         }
 
-        // Custom Rich UI Toast notifications
+        function triggerClipboardCopy(text, successMessage = 'Copied to secure clipboard!') {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                if (document.execCommand('copy')) showToast(successMessage, 'success');
+            } catch (err) {
+                showToast('Clipboard inaccessible.', 'error');
+            }
+            document.body.removeChild(tempInput);
+        }
+
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
@@ -600,46 +573,36 @@
             }, 3500);
         }
 
-        // Automatic update schedules
         function startAutoPolling() {
             clearInterval(timerInterval);
             countdownTime = 60;
-            const timerElement = document.getElementById('refresh-timer');
             timerInterval = setInterval(() => {
                 countdownTime--;
-                if (timerElement) timerElement.textContent = `${countdownTime}s`;
                 if (countdownTime <= 0) triggerDataSync();
             }, 1000);
         }
 
-        function triggerDataSync() {
-            fetchLiveAlerts();
-        }
+        function triggerDataSync() { fetchLiveAlerts(); }
 
-        // Multi-Page Navigation Engine
         function switchPage(pageName) {
             document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-link').forEach(el => {
-                el.classList.remove('text-brand-600', 'dark:text-brand-500', 'active');
+                el.classList.remove('text-brand-600', 'dark:text-brand-400', 'active');
                 el.classList.add('text-gray-500', 'dark:text-gray-400');
             });
             document.getElementById(`page-${pageName}`).classList.remove('hidden');
             const targetNav = document.getElementById(`nav-${pageName}`);
             if (targetNav) {
-                targetNav.classList.add('active', 'text-brand-600', 'dark:text-brand-500');
+                targetNav.classList.add('active', 'text-brand-600', 'dark:text-brand-400');
                 targetNav.classList.remove('text-gray-500', 'dark:text-gray-400');
             }
         }
 
-        // Ingest Primary Airtable Sync Actions
         async function fetchLiveAlerts() {
             const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`;
-            const syncIcon = document.getElementById('sync-icon');
             const skeletonGrid = document.getElementById('skeleton-grid');
             const errorPanel = document.getElementById('error-panel');
             const dataGrid = document.getElementById('data-grid');
-
-            if (syncIcon) syncIcon.classList.add('animate-spin');
 
             try {
                 const res = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_API_TOKEN}` } });
@@ -649,7 +612,6 @@
                 allAlerts = data.records || [];
                 errorPanel.classList.add('hidden');
                 
-                // Redraw Filters, Slider and Grid
                 renderFiltersPanel();
                 renderHighlightsCarousel();
                 renderStreamFeed();
@@ -657,7 +619,6 @@
                 skeletonGrid.classList.add('hidden');
                 dataGrid.classList.remove('hidden');
 
-                // Update context counts
                 const contextCount = document.getElementById('ai-context-count');
                 if (contextCount) contextCount.textContent = allAlerts.length;
 
@@ -666,58 +627,35 @@
                 skeletonGrid.classList.add('hidden');
                 dataGrid.classList.add('hidden');
                 errorPanel.classList.remove('hidden');
-                showToast("System offline. Syncing localized cache values.", "error");
+                showToast("System offline. Check connectivity.", "error");
             } finally {
-                if (syncIcon) syncIcon.classList.remove('animate-spin');
                 startAutoPolling();
             }
         }
 
-        // Helper to output dynamic Travelpayouts affiliate URLs or clean fallback searches
         function getAffiliateLink(alertField) {
-            if (alertField.Affiliate_URL) {
-                return alertField.Affiliate_URL;
-            }
-            const queryParam = encodeURIComponent(alertField.Title || 'Baku Milan flights');
+            if (alertField.Affiliate_URL) return alertField.Affiliate_URL;
+            const queryParam = encodeURIComponent(alertField.Title || 'Travel Deals');
             return `https://www.jetradar.com/?marker=12345&search_term=${queryParam}`;
         }
 
-        // Helper to evaluate Trend (Green zigzag for drop/savings, Red zigzag for warnings/spikes)
         function calculateTrend(title, notes, customTrend) {
-            if (customTrend) {
-                return customTrend.toLowerCase().includes('decrease') || customTrend.toLowerCase().includes('drop') ? 'decrease' : 'increase';
-            }
+            if (customTrend) return customTrend.toLowerCase().includes('decrease') || customTrend.toLowerCase().includes('drop') ? 'decrease' : 'increase';
             const combinedStr = `${title} ${notes}`.toLowerCase();
-            const savingsKeywords = ['drop', 'decrease', 'discount', 'saving', 'anomaly', 'cheap', 'down', 'low', '-', 'fall', 'floor', 'reset'];
-            const hasSavings = savingsKeywords.some(word => combinedStr.includes(word));
-            return hasSavings ? 'decrease' : 'increase';
+            const savingsKeywords = ['drop', 'decrease', 'discount', 'saving', 'anomaly', 'cheap', 'down', '-'];
+            return savingsKeywords.some(word => combinedStr.includes(word)) ? 'decrease' : 'increase';
         }
 
-        // Parse Date and Time Metadata natively
         function parseTimestamp(record) {
             const rawTime = record.createdTime || new Date().toISOString();
             const dateObj = new Date(rawTime);
-            
-            const options = { month: 'short', day: 'numeric', year: 'numeric' };
-            const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
-            
-            const dateFormatted = dateObj.toLocaleDateString('en-US', options);
-            const timeFormatted = dateObj.toLocaleTimeString('en-US', timeOptions);
-            
-            return `${dateFormatted} • ${timeFormatted}`;
+            return dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) + ' • ' + dateObj.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
         }
 
-        // Render swipeable top sliders showcasing drop deals
         function renderHighlightsCarousel() {
             const slider = document.getElementById('hot-deals-slider');
             slider.innerHTML = '';
-
-            const dropDeals = allAlerts.filter(r => {
-                const trend = calculateTrend(r.fields.Title || '', r.fields.Notes || '', r.fields.Trend);
-                return trend === 'decrease';
-            }).slice(0, 5);
-
-            // Fallback: If no decreases match, show top records
+            const dropDeals = allAlerts.filter(r => calculateTrend(r.fields.Title || '', r.fields.Notes || '', r.fields.Trend) === 'decrease').slice(0, 5);
             const featuredItems = dropDeals.length > 0 ? dropDeals : allAlerts.slice(0, 5);
 
             if (featuredItems.length === 0) {
@@ -726,210 +664,86 @@
             }
 
             featuredItems.forEach(r => {
-                const f = r.fields;
-                const recordId = r.id;
-                const pillar = f.Pillar || 'Arbitrage';
-                const title = f.Title || 'Transit Option Available';
+                const f = r.fields, recordId = r.id, pillar = f.Pillar || 'Arbitrage';
                 const gradient = pillarGradients[pillar.toLowerCase()] || pillarGradients['default'];
-                const affiliate = getAffiliateLink(f);
-
                 slider.innerHTML += `
                     <div class="flex-shrink-0 w-80 bg-gradient-to-tr ${gradient} text-white p-5 rounded-3xl shadow-xl flex flex-col justify-between hover:scale-[1.02] transition-transform duration-300 relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:12px_12px] pointer-events-none"></div>
+                        <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] pointer-events-none"></div>
                         <div class="space-y-2 relative z-10">
                             <div class="flex justify-between items-center">
                                 <span class="text-[9px] uppercase tracking-widest font-extrabold bg-white/20 px-2.5 py-0.5 rounded backdrop-blur">${pillar}</span>
-                                <span class="text-xs bg-emerald-500/30 text-emerald-300 px-2 py-0.5 rounded font-bold flex items-center gap-1">
-                                    <i class="fa-solid fa-arrow-trend-down animate-bounce"></i> Deal
-                                </span>
+                                <span class="text-xs bg-emerald-500/30 text-emerald-300 px-2 py-0.5 rounded font-bold flex items-center gap-1"><i class="fa-solid fa-arrow-trend-down"></i> Deal</span>
                             </div>
-                            <h3 onclick="openAlertDetail('${recordId}')" class="text-sm font-bold tracking-tight line-clamp-2 cursor-pointer hover:underline pt-1">${title}</h3>
+                            <h3 onclick="openAlertDetail('${recordId}')" class="text-sm font-bold tracking-tight line-clamp-2 cursor-pointer hover:underline pt-1">${f.Title || 'Option Available'}</h3>
                         </div>
                         <div class="flex items-center justify-between mt-6 pt-3 border-t border-white/10 relative z-10">
-                            <button onclick="openAlertDetail('${recordId}')" class="text-[10px] uppercase tracking-wider font-extrabold text-white/90 hover:text-white flex items-center gap-1">
-                                Details <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                            </button>
-                            <a href="${affiliate}" target="_blank" class="px-3 py-1.5 bg-white text-brand-700 hover:bg-brand-50 text-[10px] font-bold rounded-lg shadow transition">
-                                Book Partner Rate <i class="fa-solid fa-plane text-[8px] ml-0.5"></i>
-                            </a>
+                            <button onclick="openAlertDetail('${recordId}')" class="text-[10px] uppercase tracking-wider font-extrabold text-white/90 hover:text-white">Details <i class="fa-solid fa-chevron-right text-[8px]"></i></button>
+                            <a href="${getAffiliateLink(f)}" target="_blank" class="px-3 py-1.5 bg-white text-emerald-700 hover:bg-brand-55 text-[10px] font-bold rounded-lg shadow transition">Book Rate <i class="fa-solid fa-plane text-[8px] ml-0.5"></i></a>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
         }
 
-        // Render Filter Chips statically containing user specified key pillars
         function renderFiltersPanel() {
             const container = document.getElementById('filter-container');
-            let html = `
-                <button onclick="setFilter('ALL')" class="filter-chip px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 border ${
-                    activeFilter === 'ALL'
-                        ? 'bg-brand-600 text-white border-brand-600 shadow-md shadow-brand-600/15'
-                        : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                }">All Nodes</button>
-            `;
-
-            uniquePillars.forEach(pillar => {
-                const isSelected = activeFilter.toLowerCase() === pillar.toLowerCase();
-                html += `
-                    <button onclick="setFilter('${pillar}')" class="filter-chip px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 border capitalize ${
-                        isSelected
-                            ? 'bg-brand-600 text-white border-brand-600 shadow-md shadow-brand-600/15'
-                            : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                    }">${pillar}</button>
-                `;
+            let html = `<button onclick="setFilter('ALL')" class="filter-chip px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border ${activeFilter === 'ALL' ? 'bg-brand-600 text-white border-brand-600 shadow-md' : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300'}">All Nodes</button>`;
+            
+            uniquePillars.forEach(p => {
+                const sel = activeFilter.toLowerCase() === p.toLowerCase();
+                html += `<button onclick="setFilter('${p}')" class="filter-chip px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border capitalize ${sel ? 'bg-brand-600 text-white border-brand-600 shadow-md' : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300'}">${p}</button>`;
             });
-
             container.innerHTML = html;
             document.getElementById('alert-counter').textContent = allAlerts.length;
         }
 
-        function setFilter(filterValue) {
-            activeFilter = filterValue;
-            renderFiltersPanel();
-            renderStreamFeed();
-        }
+        function setFilter(filterValue) { activeFilter = filterValue; renderFiltersPanel(); renderStreamFeed(); }
 
-        function handleSearch(value) {
-            searchQuery = value.trim().toLowerCase();
-            renderStreamFeed();
-        }
-
-        // Render card configurations including search matches and date fields
         function renderStreamFeed() {
-            const grid = document.getElementById('data-grid');
-            const noResults = document.getElementById('no-results');
+            const grid = document.getElementById('data-grid'), noResults = document.getElementById('no-results');
             grid.innerHTML = '';
 
-            // Apply dynamic search + filter pipeline rules
             filteredAlerts = allAlerts.filter(r => {
                 const f = r.fields;
-                
-                // Category Filter Matching
                 const matchesPillar = activeFilter === 'ALL' || (f.Pillar && f.Pillar.trim().toLowerCase() === activeFilter.toLowerCase());
-                
-                // Real-time Text matching across notes, title, pillar
-                const notesStr = (f.Notes || '').toLowerCase();
-                const titleStr = (f.Title || '').toLowerCase();
-                const pillarStr = (f.Pillar || '').toLowerCase();
-                
-                // Ensure text search checks for matches once 3+ characters are written
                 const isSearching = searchQuery.length >= 3;
-                const matchesSearch = !isSearching || 
-                                      notesStr.includes(searchQuery) || 
-                                      titleStr.includes(searchQuery) || 
-                                      pillarStr.includes(searchQuery);
-
+                const matchesSearch = !isSearching || (f.Notes || '').toLowerCase().includes(searchQuery) || (f.Title || '').toLowerCase().includes(searchQuery);
                 return matchesPillar && matchesSearch;
             });
 
-            if (filteredAlerts.length === 0) {
-                noResults.classList.remove('hidden');
-                grid.classList.add('hidden');
-                return;
-            }
-
-            noResults.classList.add('hidden');
-            grid.classList.remove('hidden');
+            if (filteredAlerts.length === 0) { grid.classList.add('hidden'); noResults.classList.remove('hidden'); return; }
+            noResults.classList.add('hidden'); grid.classList.remove('hidden');
 
             filteredAlerts.forEach((r, idx) => {
-                const f = r.fields;
-                const recordId = r.id;
-                const pillar = f.Pillar || 'Update';
-                const notes = f.Notes || '';
-                const title = f.Title || 'Untitled Transit Node';
-                const affiliateUrl = getAffiliateLink(f);
-                
-                // Parse dynamic trend Arrow (green downward for drops, red upward for spikes)
-                const trendType = calculateTrend(title, notes, f.Trend);
-                
-                // Parse localized Date and Time
-                const dateMetadata = parseTimestamp(r);
-                
-                // Render markup layout
-                const parsedMarkdownPreview = marked.parse(notes);
-                const gradientClass = pillarGradients[pillar.toLowerCase()] || pillarGradients['default'];
+                const f = r.fields, recordId = r.id, pillar = f.Pillar || 'Update';
+                const trend = calculateTrend(f.Title || '', f.Notes || '', f.Trend);
+                const gradient = pillarGradients[pillar.toLowerCase()] || pillarGradients['default'];
 
                 grid.innerHTML += `
                     <div class="glass-card rounded-3xl overflow-hidden flex flex-col h-full group relative">
-                        <!-- Top Image or Gradient Graphic Fallback -->
                         <div class="relative h-48 w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
-                            ${f.Graphic_URL 
-                                ? `<img src="${f.Graphic_URL}" onclick="openAlertDetail('${recordId}')" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500 cursor-pointer" alt="${title}" onerror="this.style.display='none'; document.getElementById('fallback-gradient-${idx}').classList.remove('hidden')">`
-                                : ''
-                            }
-                            <div id="fallback-gradient-${idx}" onclick="openAlertDetail('${recordId}')" class="absolute inset-0 bg-gradient-to-tr ${gradientClass} opacity-90 p-6 flex flex-col justify-between cursor-pointer ${f.Graphic_URL ? 'hidden' : ''}">
-                                <div class="flex justify-between items-start">
-                                    <span class="mono-text text-[9px] uppercase tracking-wider text-white/80 bg-white/10 px-2 py-0.5 rounded backdrop-blur">Telemetry Active</span>
-                                    <i class="fa-solid fa-radar text-white/40 text-lg"></i>
-                                </div>
-                                <div class="text-white">
-                                    <span class="text-[10px] uppercase font-bold text-white/70 tracking-widest">${pillar}</span>
-                                    <h4 class="text-lg font-bold line-clamp-1 leading-tight">${title}</h4>
-                                </div>
+                            ${f.Graphic_URL ? `<img src="${f.Graphic_URL}" onclick="openAlertDetail('${recordId}')" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500 cursor-pointer" onerror="this.style.display='none'; document.getElementById('fallback-gradient-${idx}').classList.remove('hidden')">` : ''}
+                            <div id="fallback-gradient-${idx}" onclick="openAlertDetail('${recordId}')" class="absolute inset-0 bg-gradient-to-tr ${gradient} opacity-90 p-6 flex flex-col justify-between cursor-pointer ${f.Graphic_URL ? 'hidden' : ''}">
+                                <div class="text-white pt-12"><span class="text-[10px] uppercase font-bold text-white/70 tracking-widest">${pillar}</span><h4 class="text-lg font-bold line-clamp-1 leading-tight">${f.Title || 'Node'}</h4></div>
                             </div>
-
-                            <!-- Badge overlay Left Top -->
-                            <div class="absolute top-4 left-4 z-20">
-                                <span class="text-[9px] font-extrabold tracking-widest uppercase text-white bg-black/40 backdrop-blur-md px-2.5 py-1 rounded">
-                                    ${pillar}
-                                </span>
-                            </div>
-
-                            <!-- ZIGZAG FINANCIAL TREND BADGE Right Top -->
-                            <div class="absolute top-4 right-4 z-20">
-                                ${trendType === 'decrease' 
-                                    ? `<span class="bg-emerald-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-xl flex items-center gap-1 shadow-lg shadow-emerald-500/20" title="Saving Drop Anomaly">
-                                         <i class="fa-solid fa-arrow-trend-down"></i> - Drop
-                                       </span>`
-                                    : `<span class="bg-rose-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-xl flex items-center gap-1 shadow-lg shadow-rose-500/20" title="Price Rise/Spike Alert">
-                                         <i class="fa-solid fa-arrow-trend-up"></i> + Rise
-                                       </span>`
-                                }
-                            </div>
+                            <div class="absolute top-4 left-4 z-20"><span class="text-[9px] font-extrabold tracking-widest uppercase text-white bg-black/40 backdrop-blur-md px-2.5 py-1 rounded">${pillar}</span></div>
+                            <div class="absolute top-4 right-4 z-20">${trend === 'decrease' ? '<span class="bg-emerald-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-xl shadow-lg shadow-emerald-500/20"><i class="fa-solid fa-arrow-trend-down"></i> - Drop</span>' : '<span class="bg-rose-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-xl shadow-lg shadow-rose-500/20"><i class="fa-solid fa-arrow-trend-up"></i> + Rise</span>'}</div>
                         </div>
-
-                        <!-- Content details layout -->
                         <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
                             <div class="space-y-2">
-                                <!-- Title click triggers details drawer -->
-                                <h3 onclick="openAlertDetail('${recordId}')" class="text-lg font-bold text-gray-950 dark:text-white leading-snug tracking-tight group-hover:text-brand-600 dark:group-hover:text-brand-500 transition-colors line-clamp-2 cursor-pointer">
-                                    ${title}
-                                </h3>
-                                
-                                <!-- Metadata Row displaying Pillar, Date and Time -->
-                                <div class="flex items-center gap-2 text-[10px] uppercase font-extrabold tracking-wider text-brand-600 dark:text-brand-400 font-mono">
-                                    <span>${pillar}</span>
-                                    <span class="text-gray-300 dark:text-gray-700">•</span>
-                                    <span class="text-gray-500 dark:text-gray-400">${dateMetadata}</span>
-                                </div>
-
-                                <!-- Ingested markdown previews -->
-                                <div class="markdown-container text-xs text-gray-500 dark:text-gray-400 line-clamp-3 leading-relaxed">
-                                    ${parsedMarkdownPreview}
-                                </div>
+                                <h3 onclick="openAlertDetail('${recordId}')" class="text-lg font-bold text-gray-950 dark:text-white group-hover:text-brand-500 transition-colors line-clamp-2 cursor-pointer">${f.Title || 'Untitled Node'}</h3>
+                                <div class="flex items-center gap-2 text-[10px] uppercase font-extrabold tracking-wider text-brand-500 font-mono"><span>${pillar}</span><span class="text-gray-700">•</span><span class="text-gray-400">${parseTimestamp(r)}</span></div>
+                                <div class="markdown-container text-xs text-gray-500 dark:text-gray-400 line-clamp-3 leading-relaxed">${marked.parse(f.Notes || '')}</div>
                             </div>
-
-                            <!-- Click Actions footer including direct Travelpayout links -->
                             <div class="pt-4 border-t border-gray-100 dark:border-gray-800/60 flex flex-col gap-3">
-                                <div class="flex items-center justify-between text-[10px] mono-text text-gray-400 dark:text-gray-500">
-                                    <span class="flex items-center gap-1.5" onclick="openAlertDetail('${recordId}')">
-                                        <span class="h-1.5 w-1.5 rounded-full bg-brand-500 animate-ping"></span>
-                                        Interactive Briefing
-                                    </span>
-                                    <span onclick="openAlertDetail('${recordId}')" class="group-hover:translate-x-1 transition-transform cursor-pointer">Read Details <i class="fa-solid fa-chevron-right ml-1"></i></span>
-                                </div>
-                                <a href="${affiliateUrl}" target="_blank" class="w-full text-center py-2.5 bg-slate-50 hover:bg-brand-50 dark:bg-gray-900/60 dark:hover:bg-brand-950/40 text-brand-600 dark:text-brand-400 border border-brand-500/20 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
-                                    <i class="fa-solid fa-plane-departure text-[11px]"></i> Secure Route Rates
-                                </a>
+                                <div class="flex items-center justify-between text-[10px] mono-text text-gray-400"><span class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-brand-500 animate-ping"></span>Live Node</span><span onclick="openAlertDetail('${recordId}')" class="cursor-pointer">Read Details <i class="fa-solid fa-chevron-right ml-1"></i></span></div>
+                                <a href="${getAffiliateLink(f)}" target="_blank" class="w-full text-center py-2.5 bg-slate-50 hover:bg-brand-50 dark:bg-gray-900/60 dark:hover:bg-brand-950/40 text-brand-600 dark:text-brand-400 border border-brand-500/20 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all"><i class="fa-solid fa-plane-departure text-[11px]"></i> Secure Route Rates</a>
                             </div>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
+            document.getElementById('alert-counter').textContent = allAlerts.length;
         }
 
-        // Open sliding details Drawer
         function openAlertDetail(recordId) {
             const record = allAlerts.find(r => r.id === recordId);
             if (!record) return;
@@ -937,264 +751,120 @@
             currentlyOpenRecord = record;
             const f = record.fields;
 
-            const title = f.Title || 'Untitled Pipeline';
-            const notes = f.Notes || '*No description loaded*';
-            const pillar = f.Pillar || 'General Update';
-            const dateStr = parseTimestamp(record);
-            const affiliate = getAffiliateLink(f);
-
-            document.getElementById('drawer-title').textContent = title;
-            document.getElementById('drawer-notes').innerHTML = marked.parse(notes);
-            document.getElementById('drawer-pillar').textContent = pillar;
-            document.getElementById('drawer-date').textContent = dateStr;
+            document.getElementById('drawer-title').textContent = f.Title || 'Untitled Pipeline';
+            document.getElementById('drawer-notes').innerHTML = marked.parse(f.Notes || '*No details uploaded*');
+            document.getElementById('drawer-pillar').textContent = f.Pillar || 'General';
+            document.getElementById('drawer-date').textContent = parseTimestamp(record);
             document.getElementById('drawer-id').textContent = `ID: TB-${recordId.slice(-6).toUpperCase()}`;
+            document.getElementById('drawer-affiliate-btn').href = getAffiliateLink(f);
 
-            // Configure Travelpayout partner CTA URL
-            const affiliateBtn = document.getElementById('drawer-affiliate-btn');
-            affiliateBtn.href = affiliate;
-
-            // Reset Drawer AI evaluation blocks
             document.getElementById('drawer-ai-result-panel').classList.add('hidden');
             document.getElementById('drawer-ai-output').innerHTML = '';
             document.getElementById('drawer-ai-loader').classList.add('hidden');
             document.getElementById('btn-single-ai').classList.remove('hidden');
 
-            const img = document.getElementById('drawer-img');
-            const fallbackGrad = document.getElementById('drawer-gradient-fallback');
-
+            const img = document.getElementById('drawer-img'), fallbackGrad = document.getElementById('drawer-gradient-fallback');
             if (f.Graphic_URL) {
-                img.src = f.Graphic_URL;
-                img.classList.remove('hidden');
-                fallbackGrad.classList.add('hidden');
-                img.onerror = () => {
-                    img.classList.add('hidden');
-                    fallbackGrad.classList.remove('hidden');
-                };
+                img.src = f.Graphic_URL; img.classList.remove('hidden'); fallbackGrad.classList.add('hidden');
+                img.onerror = () => { img.classList.add('hidden'); fallbackGrad.classList.remove('hidden'); };
             } else {
-                img.classList.add('hidden');
-                fallbackGrad.className = `absolute inset-0 bg-gradient-to-tr ${pillarGradients[pillar.toLowerCase()] || pillarGradients['default']} opacity-90`;
-                fallbackGrad.classList.remove('hidden');
+                img.classList.add('hidden'); fallbackGrad.className = `absolute inset-0 bg-gradient-to-tr ${pillarGradients[(f.Pillar || '').toLowerCase()] || pillarGradients['default']} opacity-90`; fallbackGrad.classList.remove('hidden');
             }
 
-            const drawer = document.getElementById('alert-drawer');
-            const panel = document.getElementById('drawer-panel');
-            drawer.classList.remove('hidden');
-            setTimeout(() => panel.classList.remove('translate-x-full'), 50);
+            document.getElementById('alert-drawer').classList.remove('hidden');
+            setTimeout(() => document.getElementById('drawer-panel').classList.remove('translate-x-full'), 50);
         }
 
         function closeDrawer() {
-            const drawer = document.getElementById('alert-drawer');
-            const panel = document.getElementById('drawer-panel');
-            panel.classList.add('translate-x-full');
-            setTimeout(() => drawer.classList.add('hidden'), 300);
+            document.getElementById('drawer-panel').classList.add('translate-x-full');
+            setTimeout(() => document.getElementById('alert-drawer').classList.add('hidden'), 300);
             currentlyOpenRecord = null;
-        }
-
-        function copyBriefingContent() {
-            if(!currentlyOpenRecord) return;
-            const f = currentlyOpenRecord.fields;
-            const content = `[The TravelButton Ingest]\nPillar: ${f.Pillar || 'General'}\nTitle: ${f.Title || 'Untitled'}\nNotes: ${f.Notes || ''}`;
-            triggerClipboardCopy(content, "Briefing copied to secure clipboard!");
-        }
-
-        function shareDirectAlert() {
-            if(!currentlyOpenRecord) return;
-            const link = `${window.location.origin}${window.location.pathname}?alert=${currentlyOpenRecord.id}`;
-            triggerClipboardCopy(link, "Link copied to clipboard!");
-        }
-
-        // Secure Client-Side Gemini Execution Engine
-        async function fetchGeminiLlm(userPrompt, systemInstruction = "") {
-            const userSavedApiKey = localStorage.getItem(AI_KEY_STORAGE_KEY);
-            if (!userSavedApiKey || userSavedApiKey.trim().length < 5) {
-                openKeyModal();
-                throw new Error("Missing personal API key. Please input key inside vault config modal.");
-            }
-
-            const modelName = "gemini-2.5-flash-preview-09-2025";
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${userSavedApiKey}`;
-
-            const payload = { contents: [{ parts: [{ text: userPrompt }] }] };
-            if (systemInstruction) payload.systemInstruction = { parts: [{ text: systemInstruction }] };
-
-            const response = await fetch(url, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            });
-
-            if (!response.ok) throw new Error("Google AI studio handshake failed. Check local key configurations.");
-            const result = await response.json();
-            return result.candidates?.[0]?.content?.parts?.[0]?.text || "No readable content returned.";
-        }
-
-        // Trigger AI analysis inside the sliding Detail modal Drawer
-        async function triggerSingleAlertAI() {
-            if (!currentlyOpenRecord) return;
-            const f = currentlyOpenRecord.fields;
-
-            const btn = document.getElementById('btn-single-ai');
-            const loader = document.getElementById('drawer-ai-loader');
-            const resultPanel = document.getElementById('drawer-ai-result-panel');
-            const outputArea = document.getElementById('drawer-ai-output');
-
-            btn.classList.add('hidden');
-            loader.classList.remove('hidden');
-            resultPanel.classList.add('hidden');
-
-            const systemPrompt = "You are a professional Cross-Border Geopolitical and Travel Risk Analyst working for HQ. Output direct, highly polished travel and route mitigation guidelines in concise Markdown with structured sections.";
-            const userPrompt = `
-                Analyze this cross-border intelligence coordinates:
-                Pillar Group: ${f.Pillar || 'General'}
-                Title: ${f.Title || 'Untitled Pipeline'}
-                Intel Log: ${f.Notes || 'No notes loaded'}
-
-                Provide a structured report with these exact items:
-                1. **✨ Tactical Impact Score:** Rate risk/arbitrage capture potential from 1-10 with a brief reasoning.
-                2. **✨ Alternate Mitigation Plan:** Actionable alternative airlines, land routing, or timing configurations to avoid friction or capture optimal arbitrage.
-                3. **✨ Direct Advice:** One clear executive directive for travelers heading to this coordinates.
-            `;
-
-            try {
-                const llmOutput = await fetchGeminiLlm(userPrompt, systemPrompt);
-                outputArea.innerHTML = marked.parse(llmOutput);
-                resultPanel.classList.remove('hidden');
-            } catch (error) {
-                console.error("AI node compile failed:", error);
-                showToast(error.message, "error");
-                btn.classList.remove('hidden');
-            } finally {
-                loader.classList.add('hidden');
-            }
         }
 
         function copyDrawerAIContent() {
             const area = document.getElementById('drawer-ai-output');
-            if (area) triggerClipboardCopy(area.innerText, "Tactical Strategy Report Copied!");
+            if (area) triggerClipboardCopy(area.innerText, "Strategy Report Copied!");
         }
 
-        // AI Terminal Preset Actions
-        async function triggerPresetAI(presetType) {
-            if (allAlerts.length === 0) {
-                showToast("Context feed is empty.", "error");
-                return;
-            }
+        async function fetchGeminiLlm(userPrompt, systemInstruction = "") {
+            const key = localStorage.getItem(AI_KEY_STORAGE_KEY);
+            if (!key || key.trim().length < 5) { openKeyModal(); throw new Error("Missing personal API key context."); }
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${key}`;
+            const payload = { contents: [{ parts: [{ text: userPrompt }] }] };
+            if (systemInstruction) payload.systemInstruction = { parts: [{ text: systemInstruction }] };
 
-            const alertContextString = allAlerts.map((r, i) => {
-                return `Alert #${i+1}\nPillar: ${r.fields.Pillar || 'Uncategorized'}\nTitle: ${r.fields.Title || 'Untitled'}\nNotes: ${r.fields.Notes || ''}`;
-            }).join("\n---\n");
+            const response = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+            if (!response.ok) throw new Error("Google Handshake Failed. Check your configuration key.");
+            const res = await response.json();
+            return res.candidates?.[0]?.content?.parts?.[0]?.text || "No content returned.";
+        }
 
-            const systemPrompt = "You are the Chief Intelligence Director for The TravelButton Global Command. You provide master-class, concise, high-impact travel strategy directives and summaries of international alerts.";
-            let userPrompt = "";
+        async function triggerSingleAlertAI() {
+            if (!currentlyOpenRecord) return;
+            const f = currentlyOpenRecord.fields;
+            const btn = document.getElementById('btn-single-ai'), loader = document.getElementById('drawer-ai-loader');
+            const panel = document.getElementById('drawer-ai-result-panel'), out = document.getElementById('drawer-ai-output');
 
-            if (presetType === 'briefing') {
-                userPrompt = `
-                    You are given the following raw operational alerts currently active:
-                    ${alertContextString}
+            btn.classList.add('hidden'); loader.classList.remove('hidden'); panel.classList.add('hidden');
 
-                    Generate a master Geopolitical Security & Daily Briefing report. Structure the summary precisely:
-                    - **✨ HIGH-RISK CONFLICT BLOCKS:** Group critical delays, air traffic closures, or transit dangers.
-                    - **✨ LOGISTICAL ADVANTAGES:** Highlight flights/rents anomalies that travelers can bypass or take advantage of.
-                    - **✨ ADVISORY RECOMMENDATIONS:** 3 clear rules for international operations today.
-                `;
-                setTerminalLoading(true, "Synthesizing Daily Briefing...");
-            } else if (presetType === 'arbitrage') {
-                userPrompt = `
-                    You are given the following raw operational alerts currently active:
-                    ${alertContextString}
-
-                    Generate an Travel Arbitrage Intelligence Scan. Identify patterns and advise command:
-                    - **✨ FLIGHT DEVIATIONS & FARE LOOPS:** Pinpoint specific flights arbitrage highlighted in the logs.
-                    - **✨ GEOGRAPHIC COST ADVANTAGES:** Spot cost differences in housing, transport, or rents.
-                    - **✨ ACQUISITION ACTION MATRIX:** Detail step-by-step instructions on how travelers can book/secure these arbitrage pipelines before they correct.
-                `;
-                setTerminalLoading(true, "Scanning Price Arbitrages...");
-            }
+            const userPrompt = `Analyze context Group: ${f.Pillar || 'General'} Title: ${f.Title || 'Node'} Log: ${f.Notes || ''}. Provide Tactical Impact Score (1-10), Alternate Mitigation Options, and one target advice note.`;
 
             try {
-                const response = await fetchGeminiLlm(userPrompt, systemPrompt);
-                displayTerminalOutput(response);
-                showToast("System briefing compiled!", "success");
-            } catch (error) {
-                showToast(error.message, "error");
-            } finally {
-                setTerminalLoading(false);
-            }
+                const res = await fetchGeminiLlm(userPrompt, "You are a senior cross-border risk manager.");
+                out.innerHTML = marked.parse(res);
+                panel.classList.remove('hidden');
+            } catch (e) { showToast(e.message, "error"); btn.classList.remove('hidden'); }
+            finally { loader.classList.add('hidden'); }
         }
 
-        // Custom Query Broadcaster
+        async function triggerPresetAI(type) {
+            if(allAlerts.length === 0) return;
+            const ctx = allAlerts.map(r => `Pillar: ${r.fields.Pillar}\nTitle: ${r.fields.Title}\nNotes: ${r.fields.Notes}`).join("\n---\n");
+            setTerminalLoading(true, type === 'briefing' ? "Compiling Global Intelligence Summary..." : "Evaluating Logistical Arbitrage Matrix...");
+            
+            const p = type === 'briefing' ? `Summarize these logs into direct structural items:\n${ctx}` : `Cross-reference rates and target loopholes within these data strings:\n${ctx}`;
+            try {
+                const res = await fetchGeminiLlm(p, "You are the primary operation officer at headquarters.");
+                displayTerminalOutput(res);
+            } catch(e) { showToast(e.message, "error"); }
+            finally { setTerminalLoading(false); }
+        }
+
         async function triggerCustomAIQuery() {
-            const promptArea = document.getElementById('ai-custom-prompt');
-            const customQuery = promptArea.value.trim();
+            const area = document.getElementById('ai-custom-prompt'), q = area.value.trim();
+            if(!q || allAlerts.length === 0) return;
+            const ctx = allAlerts.map(r => `Title: ${r.fields.Title}\nNotes: ${r.fields.Notes}`).join("\n---\n");
 
-            if (!customQuery) {
-                showToast("Terminal requires a query.", "error");
-                return;
-            }
-
-            const alertContextString = allAlerts.map((r, i) => {
-                return `Alert #${i+1}\nPillar: ${r.fields.Pillar || 'Uncategorized'}\nTitle: ${r.fields.Title || 'Untitled'}\nNotes: ${r.fields.Notes || ''}`;
-            }).join("\n---\n");
-
-            const systemPrompt = "You are the Lead Orbital Intelligence Officer for The TravelButton. Use the active directory list data to answer queries with precise factual cross-referencing. Be concise, realistic, and highly strategic.";
-            const combinedPrompt = `
-                Active Telemetry Feed Coordinates:
-                ${alertContextString}
-
-                Traveler Command Custom Query: "${customQuery}"
-
-                Based on the active telemetry feed above, generate a strategic tactical response in beautifully formatted Markdown. Highlight direct coordinate answers, risk mitigations, and cross-references.
-            `;
-
-            setTerminalLoading(true, "Broadcasting Custom Query...");
-
+            setTerminalLoading(true, "Querying Ingested Feed Matrices...");
             try {
-                const response = await fetchGeminiLlm(combinedPrompt, systemPrompt);
-                displayTerminalOutput(response);
-                promptArea.value = "";
-                showToast("Custom query compiled!", "success");
-            } catch (error) {
-                showToast(error.message, "error");
-            } finally {
-                setTerminalLoading(false);
-            }
+                const res = await fetchGeminiLlm(`Logs:\n${ctx}\nQuery: ${q}`, "Answer strategy coordinates factual to the log context.");
+                displayTerminalOutput(res);
+                area.value = "";
+            } catch(e) { showToast(e.message, "error"); }
+            finally { setTerminalLoading(false); }
         }
 
-        let activeTerminalText = "";
-        function setTerminalLoading(isLoading, title = "") {
-            const screen = document.getElementById('ai-loading-screen');
-            const label = document.getElementById('ai-loader-title');
-            label.textContent = title || "Orbiting Tactical Systems...";
-            isLoading ? screen.classList.remove('hidden') : screen.classList.add('hidden');
+        function setTerminalLoading(isLoad, msg="") {
+            const scr = document.getElementById('ai-loading-screen');
+            document.getElementById('ai-loader-title').textContent = msg || "Processing...";
+            isLoad ? scr.classList.remove('hidden') : scr.classList.add('hidden');
         }
 
-        function displayTerminalOutput(markdownText) {
-            activeTerminalText = markdownText;
+        function displayTerminalOutput(txt) {
             document.getElementById('terminal-initial').classList.add('hidden');
-            const container = document.getElementById('terminal-markdown-container');
-            container.classList.remove('hidden');
-            container.innerHTML = marked.parse(markdownText);
+            const el = document.getElementById('terminal-markdown-container');
+            el.classList.remove('hidden'); el.innerHTML = marked.parse(txt);
             document.getElementById('btn-copy-terminal').removeAttribute('disabled');
         }
 
-        function copyTerminalOutput() {
-            if(activeTerminalText) triggerClipboardCopy(activeTerminalText, "Console briefing copied!");
-        }
-
-        // App Deep-Link Routing Verification
+        function copyTerminalOutput() { if(activeTerminalText) triggerClipboardCopy(activeTerminalText, "Console text copied!"); }
+        
         function verifyDeepLink() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const alertId = urlParams.get('alert');
-            if (alertId && allAlerts.length > 0) {
-                setTimeout(() => openAlertDetail(alertId), 500);
-            }
+            const id = new URLSearchParams(window.location.search).get('alert');
+            if (id && allAlerts.length > 0) setTimeout(() => openAlertDetail(id), 500);
         }
 
-        window.onload = function() {
-            initApp();
-            // Let the pipeline settle before running deep links
-            setTimeout(verifyDeepLink, 1000);
-        };
+        window.onload = function() { initApp(); setTimeout(verifyDeepLink, 1000); };
     </script>
 </body>
 </html>
