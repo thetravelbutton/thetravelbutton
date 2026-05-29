@@ -9,33 +9,72 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #F9FAFA; color: #1A1A1A; }
+        .tab-link.active { color: #2563eb; border-bottom: 2px solid #2563eb; }
     </style>
 </head>
 <body class="p-4 md:p-10">
     <div class="max-w-6xl mx-auto">
+        
         <header class="grid md:grid-cols-2 gap-12 items-center mb-16 border-b border-gray-200 pb-12">
             <div>
                 <h1 class="text-5xl font-bold text-gray-900 tracking-tighter mb-2">The TravelButton</h1>
+                
                 <nav class="flex gap-6 text-sm font-semibold text-gray-500 mb-6">
-                    <a href="#" class="hover:text-blue-600 transition">About</a>
-                    <a href="#" class="hover:text-blue-600 transition">Contact</a>
-                    <a href="#" class="hover:text-blue-600 transition">Archive</a>
+                    <button onclick="switchPage('stream')" id="nav-stream" class="tab-link active pb-1 hover:text-blue-600 transition">Live Stream</button>
+                    <button onclick="switchPage('about')" id="nav-about" class="tab-link pb-1 hover:text-blue-600 transition">About</button>
+                    <button onclick="switchPage('contact')" id="nav-contact" class="tab-link pb-1 hover:text-blue-600 transition">Contact</button>
                 </nav>
+                
                 <p class="text-blue-600 font-semibold tracking-wide uppercase text-xs mb-6">Live Asset Stream • Flights • Rents • Events • Hype</p>
                 
                 <div class="flex gap-4 text-xl text-gray-400">
-                    <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/_thetravelbutton_" target="_blank" class="hover:text-blue-600 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/thetravelbutton" target="_blank" class="hover:text-blue-600 transition"><i class="fab fa-telegram"></i></a>
+                    <a href="https://fb.com/thetravelbutton" target="_blank" class="hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
-            <div class="h-64 bg-gray-200 rounded-3xl flex items-center justify-center text-gray-400 italic">
-                [Hero Image Area]
+            
+            <div>
+                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800" 
+                     class="w-full h-64 object-cover rounded-3xl shadow-lg border border-gray-100" 
+                     alt="The TravelButton Hub">
             </div>
         </header>
 
-        <div id="data-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <main id="page-stream" class="page-content">
+            <div id="data-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+        </main>
+
+        <main id="page-about" class="page-content hidden">
+            <div class="max-w-2xl bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 tracking-tight">About The TravelButton</h2>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    The TravelButton is a high-performance cross-border intelligence directory designed to track transit anomalies, logistical advantages, and premium corporate asset arbitrage across global networks.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    By pulling operational points directly into a streamlined web experience, we bypass the noise of standard agency channels to deliver high-priority alerts instantaneously.
+                </p>
             </div>
+        </main>
+
+        <main id="page-contact" class="page-content hidden">
+            <div class="max-w-2xl bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 tracking-tight">Connect with HQ</h2>
+                <p class="text-gray-600 mb-6">For secure log lines, dispatch inquiries, or coordinate routing, reach out via our official communication pathways:</p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3 text-gray-700">
+                        <i class="fas fa-envelope text-blue-600 w-5"></i>
+                        <a href="mailto:thetravelbuttonhq@gmail.com" class="hover:underline font-medium">thetravelbuttonhq@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-3 text-gray-700">
+                        <i class="fab fa-telegram text-blue-600 w-5"></i>
+                        <a href="https://t.me/thetravelbutton" target="_blank" class="hover:underline font-medium">Official Telegram Channel</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
     </div>
 
     <script>
@@ -43,26 +82,42 @@
         const AIRTABLE_TABLE_NAME = 'Alerts'; 
         const AIRTABLE_API_TOKEN = 'patzQKUo0MsGdjP0Q.f082f837a473a6bdfa9903d4c8d16b591a27a8f48b17db02eddec028471374a6';
 
+        // MULTI-PAGE NAVIGATION FUNCTION
+        function switchPage(pageName) {
+            // Hide all sub pages
+            document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
+            // Remove active underline status from tabs
+            document.querySelectorAll('.tab-link').forEach(el => el.classList.remove('active'));
+            
+            // Show requested page and color label active
+            document.getElementById(`page-${pageName}`).classList.remove('hidden');
+            document.getElementById(`nav-${pageName}`).classList.add('active');
+        }
+
         async function fetchLiveAlerts() {
             const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`;
-            const res = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_API_TOKEN}` } });
-            const data = await res.json();
-            const grid = document.getElementById('data-grid');
-            grid.innerHTML = '';
-            
-            data.records.forEach(r => {
-                const f = r.fields;
-                grid.innerHTML += `
-                    <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                        ${f.Graphic_URL ? `<img src="${f.Graphic_URL}" class="w-full h-56 object-cover">` : ''}
-                        <div class="p-8">
-                            <span class="text-[10px] font-bold tracking-widest uppercase text-blue-600">${f.Pillar || 'Update'}</span>
-                            <h2 class="text-2xl font-bold text-gray-950 mt-2 mb-4 tracking-tight">${f.Title || 'Untitled'}</h2>
-                            <p class="text-gray-600 leading-relaxed">${f.Notes || ''}</p>
+            try {
+                const res = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_API_TOKEN}` } });
+                const data = await res.json();
+                const grid = document.getElementById('data-grid');
+                grid.innerHTML = '';
+                
+                data.records.forEach(r => {
+                    const f = r.fields;
+                    grid.innerHTML += `
+                        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                            ${f.Graphic_URL ? `<img src="${f.Graphic_URL}" class="w-full h-56 object-cover">` : ''}
+                            <div class="p-8">
+                                <span class="text-[10px] font-bold tracking-widest uppercase text-blue-600">${f.Pillar || 'Update'}</span>
+                                <h2 class="text-2xl font-bold text-gray-950 mt-2 mb-4 tracking-tight">${f.Title || 'Untitled'}</h2>
+                                <p class="text-gray-600 leading-relaxed">${f.Notes || ''}</p>
+                            </div>
                         </div>
-                    </div>
-                `;
-            });
+                    `;
+                });
+            } catch (error) {
+                console.error("Data stream connection error:", error);
+            }
         }
         fetchLiveAlerts();
     </script>
