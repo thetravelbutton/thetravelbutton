@@ -1,125 +1,460 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The TravelButton | Professional Stream</title>
+    <title>The TravelButton | Cross-Border Intelligence Directory</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            950: '#030712'
+                        },
+                        cyber: {
+                            light: '#1e293b',
+                            dark: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #F9FAFA; color: #1A1A1A; }
-        .tab-link.active { color: #2563eb; border-bottom: 2px solid #2563eb; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        .mono-text { font-family: 'JetBrains Mono', monospace; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .markdown-container p { margin-bottom: 0.75rem; }
+        .markdown-container p:last-child { margin-bottom: 0; }
+        .markdown-container a { color: #3b82f6; text-decoration: underline; font-weight: 500; }
+        .markdown-container a:hover { color: #2563eb; }
+        .markdown-container ul, .markdown-container ol { margin-left: 1.25rem; margin-bottom: 0.75rem; list-style-type: disc; }
+        .markdown-container li { margin-bottom: 0.25rem; }
+        .markdown-container strong { font-weight: 700; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes shimmer { 100% { transform: translateX(100%); } }
+        .shimmer-effect::after {
+            position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform: translateX(-100%);
+            background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 100%);
+            animation: shimmer 2s infinite; content: '';
+        }
+        .dark .shimmer-effect::after {
+            background-image: linear-gradient(90deg, rgba(15,23,42,0) 0%, rgba(15,23,42,0.1) 20%, rgba(255,255,255,0.05) 60%, rgba(15,23,42,0) 100%);
+        }
+        .ai-glow { box-shadow: 0 0 15px rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.3); }
+        .dark .ai-glow { box-shadow: 0 0 25px rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2); }
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+        .animate-marquee:hover { animation-play-state: paused; }
     </style>
 </head>
-<body class="p-4 md:p-10">
-    <div class="max-w-6xl mx-auto">
+<body class="bg-[#F8FAFC] text-[#0F172A] dark:bg-[#030712] dark:text-[#F3F4F6] min-h-screen antialiased flex flex-col selection:bg-brand-500 selection:text-white pb-12">
+
+    <div class="w-full bg-brand-600 dark:bg-brand-950/80 text-white text-[10px] mono-text font-bold py-2.5 overflow-hidden border-b border-brand-700/50 dark:border-brand-900/40 relative z-20">
+        <div class="animate-marquee flex gap-12 items-center whitespace-nowrap">
+            <span>📡 TRAVELBUTTON DIRECT DIAL ANOMALY: MILAN TO BAKU FARE RESET DEVIATION DETECTED (-42%)</span>
+            <span>🔥 LIVE RENTS INDEX: TOKYO MICRO-UNIT LISTINGS DROP BELOW VALUE FLOOR</span>
+            <span>⚡️ SYSTEM STATUS: ALL CROSS-BORDER LOGISTICAL NODES SYNCHRONIZED NATIVELY</span>
+            <span>🚨 AIR CARRIER OPTIMIZER: PARIS ROUTING BYPASSES AIRSPACE CONFLICT BLOCKS</span>
+            <span>📡 TRAVELBUTTON DIRECT DIAL ANOMALY: MILAN TO BAKU FARE RESET DEVIATION DETECTED (-42%)</span>
+            <span>🔥 LIVE RENTS INDEX: TOKYO MICRO-UNIT LISTINGS DROP BELOW VALUE FLOOR</span>
+        </div>
+    </div>
+
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-blue-500/10 dark:bg-blue-600/5 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+    <div class="max-w-6xl w-full mx-auto px-4 md:px-8 z-10 relative flex-grow">
         
-        <header class="grid md:grid-cols-2 gap-12 items-center mb-16 border-b border-gray-200 pb-12">
-            <div>
-                <h1 class="text-5xl font-bold text-gray-900 tracking-tighter mb-2">The TravelButton</h1>
-                
-                <nav class="flex gap-6 text-sm font-semibold text-gray-500 mb-6">
-                    <button onclick="switchPage('stream')" id="nav-stream" class="tab-link active pb-1 hover:text-blue-600 transition">Live Stream</button>
-                    <button onclick="switchPage('about')" id="nav-about" class="tab-link pb-1 hover:text-blue-600 transition">About</button>
-                    <button onclick="switchPage('contact')" id="nav-contact" class="tab-link pb-1 hover:text-blue-600 transition">Contact</button>
-                </nav>
-                
-                <p class="text-blue-600 font-semibold tracking-wide uppercase text-xs mb-6">Live Asset Stream • Flights • Rents • Events • Hype</p>
-                
-                <div class="flex gap-4 text-xl text-gray-400">
-                    <a href="https://instagram.com/_thetravelbutton_" target="_blank" class="hover:text-blue-600 transition"><i class="fab fa-instagram"></i></a>
-                    <a href="https://t.me/thetravelbutton" target="_blank" class="hover:text-blue-600 transition"><i class="fab fa-telegram"></i></a>
-                    <a href="https://fb.com/thetravelbutton" target="_blank" class="hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
+        <header class="py-8 md:py-12 border-b border-gray-200/60 dark:border-gray-800/60 mb-8 md:mb-12">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="inline-flex h-3 w-3 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                        </span>
+                        <span class="mono-text text-xs uppercase tracking-widest text-brand-600 dark:text-brand-500 font-semibold bg-brand-50 dark:bg-brand-950/40 px-2.5 py-1 rounded border border-brand-100 dark:border-brand-900/30">System Live • Transit Feeds</span>
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tighter">
+                        The Travel<span class="text-brand-600 dark:text-brand-500">Button</span>
+                    </h1>
+                </div>
+
+                <div class="flex items-center gap-3 self-start md:self-auto">
+                    <button onclick="openKeyModal()" id="key-status-badge" class="flex items-center gap-2 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-rose-500/20 transition">
+                        <i class="fa-solid fa-key"></i> <span id="key-status-text">AI Offline: Configure Key</span>
+                    </button>
+
+                    <button onclick="triggerDataSync()" class="p-2.5 bg-white dark:bg-gray-900/60 border border-gray-200/50 dark:border-gray-800/50 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 transition"><i class="fa-solid fa-rotate"></i></button>
+                    <button onclick="toggleTheme()" class="p-2.5 bg-white dark:bg-gray-900/60 border border-gray-200/50 dark:border-gray-800/50 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 transition" id="theme-btn"><i class="fa-regular fa-moon"></i></button>
                 </div>
             </div>
-            
-            <div>
-                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800" 
-                     class="w-full h-64 object-cover rounded-3xl shadow-lg border border-gray-100" 
-                     alt="The TravelButton Hub">
+
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7 space-y-5">
+                    <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-light">
+                        High-performance cross-border intelligence tracker. Logistical arbitrage, transit anomalies, corporate asset advantages, and travel hype delivered natively.
+                    </p>
+
+                    <nav class="flex flex-wrap gap-2 md:gap-4 border-b border-gray-200/40 dark:border-gray-800/40 pb-2 w-max text-sm font-semibold text-gray-500 dark:text-gray-400">
+                        <button onclick="switchPage('stream')" id="nav-stream" class="tab-link active pb-2 relative text-brand-600 dark:text-brand-500 transition">
+                            Live Stream <span class="bg-brand-500/10 text-brand-600 dark:text-brand-400 text-[10px] px-1.5 py-0.5 rounded ml-1" id="alert-counter">...</span>
+                        </button>
+                        <button onclick="switchPage('ai-analyst')" id="nav-ai-analyst" class="tab-link pb-2 hover:text-brand-600 dark:hover:text-brand-400 transition">
+                            <i class="fa-solid fa-wand-magic-sparkles mr-1 text-blue-500"></i> AI Analyst
+                        </button>
+                        <button onclick="switchPage('about')" id="nav-about" class="tab-link pb-2 hover:text-brand-600 dark:hover:text-brand-400 transition">About</button>
+                        <button onclick="switchPage('contact')" id="nav-contact" class="tab-link pb-2 hover:text-brand-600 dark:hover:text-brand-400 transition">Contact HQ</button>
+                    </nav>
+
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center gap-4 text-gray-400 dark:text-gray-500">
+                            <a href="https://instagram.com/_thetravelbutton_" target="_blank" class="hover:text-pink-500 transition text-xl"><i class="fab fa-instagram"></i></a>
+                            <a href="https://t.me/thetravelbutton" target="_blank" class="hover:text-blue-400 transition text-xl"><i class="fab fa-telegram"></i></a>
+                            <a href="https://fb.com/thetravelbutton" target="_blank" class="hover:text-blue-600 transition text-xl"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.youtube.com/@TheTravelButton" target="_blank" class="hover:text-red-500 transition text-xl"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.tiktok.com/@thetravelbutton" target="_blank" class="hover:text-zinc-900 dark:hover:text-white transition text-xl"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5">
+                    <div class="relative overflow-hidden rounded-3xl group border border-gray-200/50 dark:border-gray-800/50 shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#030712]/75 via-transparent to-transparent z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800" class="w-full h-56 md:h-64 object-cover transform group-hover:scale-105 transition-all duration-700" alt="The TravelButton Hub">
+                        <div class="absolute bottom-5 left-5 right-5 z-20">
+                            <span class="mono-text text-[9px] uppercase bg-brand-500 text-white px-2.5 py-1 rounded font-bold tracking-widest">Operations Hub</span>
+                            <p class="text-white text-sm font-semibold mt-1.5 leading-tight">Cross-Border Routing Engine</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
 
-        <main id="page-stream" class="page-content">
-            <div id="data-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <main id="page-stream" class="page-content space-y-8">
+            <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs uppercase tracking-widest text-brand-600 dark:text-brand-400 font-extrabold flex items-center gap-1.5">
+                        <span class="h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span> 🔥 HOT ARBITRAGE CAROUSEL
+                    </span>
                 </div>
+                <div class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2" id="hot-deals-slider">
+                    <div class="flex-shrink-0 w-80 bg-gray-100 dark:bg-gray-900/40 p-4 rounded-2xl border border-gray-200/50 dark:border-gray-800/50 animate-pulse flex items-center justify-center text-xs text-gray-400">Gathering highlight feeds...</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between bg-white dark:bg-gray-900/30 border border-gray-200/40 dark:border-gray-800/40 p-4 rounded-2xl shadow-sm">
+                <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="filter-container">
+                    <button onclick="setFilter('ALL')" class="filter-chip px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-brand-600 text-white border border-brand-600">All Nodes</button>
+                </div>
+                <div class="relative min-w-[260px]">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400"><i class="fa-solid fa-magnifying-glass text-sm"></i></span>
+                    <input type="text" id="stream-search" oninput="handleSearch(this.value)" placeholder="Search transit codes..." class="w-full pl-9 pr-4 py-2 text-xs bg-gray-50 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-800 rounded-xl text-gray-800 dark:text-gray-100 transition outline-none">
+                </div>
+            </div>
+
+            <div id="skeleton-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-gray-900/40 rounded-2xl border p-6 space-y-4"><div class="h-44 w-full bg-gray-200 dark:bg-gray-800/60 rounded-xl shimmer-effect relative overflow-hidden"></div></div>
+            </div>
+
+            <div id="error-panel" class="hidden max-w-lg mx-auto bg-rose-500/10 border border-rose-500/20 text-rose-600 p-6 rounded-2xl text-center"><h3 class="text-lg font-bold">Sync Failure</h3></div>
+            <div id="data-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden"></div>
+            <div id="no-results" class="hidden text-center py-16"><h3 class="text-sm text-gray-400">No matching logistical nodes found</h3></div>
+        </main>
+
+        <main id="page-ai-analyst" class="page-content hidden space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5 bg-white dark:bg-gray-900/40 p-6 rounded-3xl border shadow-xl space-y-6 ai-glow">
+                    <div class="flex items-center gap-3">
+                        <div class="h-10 w-10 bg-blue-500/10 text-blue-500 rounded-xl flex items-center justify-center"><i class="fa-solid fa-brain-circuit text-lg"></i></div>
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-900 dark:text-white">✨ Gemini Intel Console</h2>
+                            <p class="text-[10px] uppercase text-gray-400 font-bold mono-text">Personal Token Sub-System</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">Query the cloud framework using your secure client credentials. Limits and billing are sourced strictly from your configuration payload.</p>
+                    <div class="p-3 bg-brand-50/50 dark:bg-brand-950/20 border border-brand-100 dark:border-brand-900/30 rounded-xl flex items-center justify-between text-xs">
+                        <span class="text-gray-500">Contextual Ingestion Feed:</span>
+                        <span class="font-bold text-brand-600 dark:text-brand-400 mono-text"><span id="ai-context-count">0</span> Nodes Loaded</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <button onclick="triggerPresetAI('briefing')" class="w-full flex items-center justify-between p-3.5 bg-gray-50 dark:bg-gray-900/60 border rounded-2xl text-xs hover:border-brand-500/30 transition">
+                            <div class="flex items-center gap-3"><i class="fa-solid fa-file-invoice text-brand-500"></i><span class="font-bold">✨ Synthesize Daily Briefing</span></div><i class="fa-solid fa-chevron-right text-gray-300"></i>
+                        </button>
+                        <button onclick="triggerPresetAI('arbitrage')" class="w-full flex items-center justify-between p-3.5 bg-gray-50 dark:bg-gray-900/60 border rounded-2xl text-xs hover:border-brand-500/30 transition">
+                            <div class="flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-brand-500"></i><span class="font-bold">✨ Arbitrage Intelligence Scanner</span></div><i class="fa-solid fa-chevron-right text-gray-300"></i>
+                        </button>
+                    </div>
+
+                    <div class="space-y-2 border-t pt-4">
+                        <textarea id="ai-custom-prompt" rows="3" placeholder="Ask AI to cross-reference routes, flights, or find hacks in active alerts..." class="w-full p-3 text-xs bg-gray-50 dark:bg-gray-900 border rounded-xl outline-none text-gray-800 dark:text-gray-100 transition resize-none focus:border-brand-500"></textarea>
+                        <button onclick="triggerCustomAIQuery()" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition"><i class="fa-solid fa-satellite-dish"></i> Broadcast Query to Gemini</button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="flex justify-between items-center bg-white dark:bg-gray-900/20 p-4 border rounded-2xl text-xs">
+                        <div class="flex items-center gap-2"><span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span><span class="font-bold mono-text">Terminal Log Output</span></div>
+                        <button onclick="copyTerminalOutput()" class="text-[10px] font-bold text-brand-600 dark:text-brand-400 hover:underline" id="btn-copy-terminal" disabled>Copy Terminal Output</button>
+                    </div>
+                    <div class="bg-white dark:bg-[#080d19] rounded-3xl border shadow-2xl p-6 md:p-8 min-h-[460px] flex flex-col justify-between relative overflow-hidden">
+                        <div id="ai-loading-screen" class="hidden absolute inset-0 bg-[#F8FAFC]/90 dark:bg-[#030712]/90 backdrop-blur-sm z-30 flex flex-col items-center justify-center space-y-6">
+                            <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-brand-500"></div>
+                            <h4 class="text-sm font-bold" id="ai-loader-title">Orbiting Systems...</h4>
+                        </div>
+                        <div id="terminal-initial" class="flex-grow flex flex-col items-center justify-center text-center py-24 space-y-4 text-gray-400">
+                            <i class="fa-solid fa-network-wired text-3xl"></i>
+                            <p class="text-xs max-w-sm">Establish encryption keys via top configuration profile button to deploy the custom tactical intelligence compiler.</p>
+                        </div>
+                        <div id="terminal-markdown-container" class="hidden prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed markdown-container select-text font-light"></div>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <main id="page-about" class="page-content hidden">
-            <div class="max-w-2xl bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4 tracking-tight">About The TravelButton</h2>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                    The TravelButton is a high-performance cross-border intelligence directory designed to track transit anomalies, logistical advantages, and premium corporate asset arbitrage across global networks.
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    By pulling operational points directly into a streamlined web experience, we bypass the noise of standard agency channels to deliver high-priority alerts instantaneously.
-                </p>
+            <div class="max-w-3xl bg-white dark:bg-gray-900/40 p-6 rounded-3xl border shadow-xl space-y-4">
+                <h2 class="text-3xl font-extrabold tracking-tight">About The TravelButton</h2>
+                <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">The TravelButton operates as a high-performance directory tracking cross-border anomalies and premium asset arbitrage maps across global logistics channels.</p>
             </div>
         </main>
-
         <main id="page-contact" class="page-content hidden">
-            <div class="max-w-2xl bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4 tracking-tight">Connect with HQ</h2>
-                <p class="text-gray-600 mb-6">For secure log lines, dispatch inquiries, or coordinate routing, reach out via our official communication pathways:</p>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-3 text-gray-700">
-                        <i class="fas fa-envelope text-blue-600 w-5"></i>
-                        <a href="mailto:thetravelbuttonhq@gmail.com" class="hover:underline font-medium">thetravelbuttonhq@gmail.com</a>
-                    </div>
-                    <div class="flex items-center gap-3 text-gray-700">
-                        <i class="fab fa-telegram text-blue-600 w-5"></i>
-                        <a href="https://t.me/thetravelbutton" target="_blank" class="hover:underline font-medium">Official Telegram Channel</a>
-                    </div>
-                </div>
+            <div class="max-w-3xl bg-white dark:bg-gray-900/40 p-6 rounded-3xl border shadow-xl space-y-4">
+                <h2 class="text-3xl font-extrabold tracking-tight">Communications Portal</h2>
+                <p class="text-sm text-gray-500">Establish direct coordinate handshakes via secure endpoints: <a href="mailto:thetravelbuttonhq@gmail.com" class="text-brand-500 font-bold underline">thetravelbuttonhq@gmail.com</a></p>
             </div>
         </main>
-
     </div>
+
+    <div id="key-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeKeyModal()"></div>
+        <div class="bg-white dark:bg-gray-900 rounded-3xl border border-gray-200 dark:border-gray-800 p-6 max-w-md w-full relative z-10 shadow-2xl space-y-4">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2"><i class="fa-solid fa-key text-blue-500"></i> Local API Token Vault</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                To protect developer credit limits, this console requires your personal, free Google Gemini API Key. Your token is stored **locally inside your browser cache only** and is never sent to our code repositories.
+            </p>
+            <div class="p-3 bg-blue-500/5 border border-blue-500/10 rounded-xl text-[11px] text-blue-600 dark:text-blue-400">
+                👉 Don't have a key? Get one totally free in 30 seconds at: <a href="https://aistudio.google.com/" target="_blank" class="underline font-bold hover:text-blue-700">Google AI Studio</a>
+            </div>
+            <div class="space-y-1">
+                <label class="block text-[10px] uppercase font-bold text-gray-400">Gemini API Key String</label>
+                <input type="password" id="user-key-input" placeholder="AIzaSy..." class="w-full p-2.5 bg-gray-50 dark:bg-gray-950 border dark:border-gray-800 rounded-xl text-xs outline-none focus:border-brand-500 text-gray-800 dark:text-gray-100">
+            </div>
+            <div class="flex gap-2 justify-end pt-2 text-xs">
+                <button onclick="clearSavedKey()" class="px-4 py-2 text-gray-500 hover:text-red-500 font-semibold transition">Remove Key</button>
+                <button onclick="saveUserKey()" class="px-4 py-2 bg-brand-600 text-white font-semibold rounded-xl shadow-md hover:bg-brand-700 transition">Save Key Configuration</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
 
     <script>
         const AIRTABLE_BASE_ID = 'appXGvgjygSmeuUCT'; 
         const AIRTABLE_TABLE_NAME = 'Alerts'; 
         const AIRTABLE_API_TOKEN = 'patzQKUo0MsGdjP0Q.f082f837a473a6bdfa9903d4c8d16b591a27a8f48b17db02eddec028471374a6';
+        
+        const THEME_STORAGE_KEY = 'thetravelbutton-theme';
+        const AI_KEY_STORAGE_KEY = 'thetravelbutton-user-api-key';
 
-        // MULTI-PAGE NAVIGATION FUNCTION
-        function switchPage(pageName) {
-            // Hide all sub pages
-            document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
-            // Remove active underline status from tabs
-            document.querySelectorAll('.tab-link').forEach(el => el.classList.remove('active'));
-            
-            // Show requested page and color label active
-            document.getElementById(`page-${pageName}`).classList.remove('hidden');
-            document.getElementById(`nav-${pageName}`).classList.add('active');
+        let allAlerts = [];
+        let filteredAlerts = [];
+        let activeFilter = 'ALL';
+        let searchQuery = '';
+        let countdownTime = 60;
+        let timerInterval = null;
+
+        const pillarGradients = {
+            'flights': 'from-blue-600 to-cyan-500', 'rents': 'from-purple-600 to-indigo-500',
+            'events': 'from-pink-600 to-rose-500', 'search hype': 'from-amber-500 to-orange-600', 'default': 'from-slate-700 to-slate-900'
+        };
+
+        // Initialize App & Key Config Lookups
+        function initApp() {
+            initTheme();
+            checkSavedKeyStatus();
+            fetchLiveAlerts();
         }
 
+        function checkSavedKeyStatus() {
+            const savedKey = localStorage.getItem(AI_KEY_STORAGE_KEY);
+            const badge = document.getElementById('key-status-badge');
+            const txt = document.getElementById('key-status-text');
+            if (savedKey && savedKey.trim().length > 10) {
+                badge.className = "flex items-center gap-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-emerald-500/20 transition";
+                txt.textContent = "AI Ready: Client Key Linked";
+            } else {
+                badge.className = "flex items-center gap-2 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-rose-500/20 transition";
+                txt.textContent = "AI Offline: Configure Key";
+            }
+        }
+
+        function openKeyModal() {
+            const modal = document.getElementById('key-modal');
+            const input = document.getElementById('user-key-input');
+            input.value = localStorage.getItem(AI_KEY_STORAGE_KEY) || "";
+            modal.classList.remove('hidden');
+        }
+        function closeKeyModal() { document.getElementById('key-modal').classList.add('hidden'); }
+
+        function saveUserKey() {
+            const keyVal = document.getElementById('user-key-input').value.trim();
+            if(!keyVal) { showToast("Key cannot be completely blank.", "error"); return; }
+            localStorage.setItem(AI_KEY_STORAGE_KEY, keyVal);
+            checkSavedKeyStatus();
+            closeKeyModal();
+            showToast("Gemini Local Key Encrypted and Saved!", "success");
+        }
+
+        function clearSavedKey() {
+            localStorage.removeItem(AI_KEY_STORAGE_KEY);
+            checkSavedKeyStatus();
+            closeKeyModal();
+            showToast("Key configuration wiped successfully.", "success");
+        }
+
+        // Core Ingestion Engine
         async function fetchLiveAlerts() {
             const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`;
             try {
                 const res = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_API_TOKEN}` } });
                 const data = await res.json();
-                const grid = document.getElementById('data-grid');
-                grid.innerHTML = '';
-                
-                data.records.forEach(r => {
-                    const f = r.fields;
-                    grid.innerHTML += `
-                        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                            ${f.Graphic_URL ? `<img src="${f.Graphic_URL}" class="w-full h-56 object-cover">` : ''}
-                            <div class="p-8">
-                                <span class="text-[10px] font-bold tracking-widest uppercase text-blue-600">${f.Pillar || 'Update'}</span>
-                                <h2 class="text-2xl font-bold text-gray-950 mt-2 mb-4 tracking-tight">${f.Title || 'Untitled'}</h2>
-                                <p class="text-gray-600 leading-relaxed">${f.Notes || ''}</p>
-                            </div>
-                        </div>
-                    `;
-                });
-            } catch (error) {
-                console.error("Data stream connection error:", error);
+                allAlerts = data.records || [];
+                document.getElementById('skeleton-grid').classList.add('hidden');
+                document.getElementById('data-grid').classList.remove('hidden');
+                renderStreamFeed();
+                document.getElementById('ai-context-count').textContent = allAlerts.length;
+            } catch (e) {
+                showToast("Airtable sync error.", "error");
             }
         }
-        fetchLiveAlerts();
+
+        function renderStreamFeed() {
+            const grid = document.getElementById('data-grid');
+            grid.innerHTML = '';
+            allAlerts.forEach(r => {
+                const f = r.fields;
+                grid.innerHTML += `
+                    <div class="glass-card rounded-3xl overflow-hidden flex flex-col p-6 space-y-4">
+                        ${f.Graphic_URL ? `<img src="${f.Graphic_URL}" class="w-full h-44 object-cover rounded-xl">` : ''}
+                        <div>
+                            <span class="text-[10px] font-bold text-blue-500 uppercase tracking-wider">${f.Pillar || 'Update'}</span>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mt-1">${f.Title || 'Untitled'}</h3>
+                            <p class="text-xs text-gray-500 mt-2 leading-relaxed">${f.Notes || ''}</p>
+                        </div>
+                    </div>`;
+            });
+            document.getElementById('alert-counter').textContent = allAlerts.length;
+        }
+
+        // Secure Client-Side Gemini Execution Engine
+        async function fetchGeminiLlm(userPrompt, systemInstruction = "") {
+            const userSavedApiKey = localStorage.getItem(AI_KEY_STORAGE_KEY);
+            if (!userSavedApiKey || userSavedApiKey.trim().length < 5) {
+                openKeyModal();
+                throw new Error("Missing personal API key context.");
+            }
+
+            const modelName = "gemini-2.5-flash-preview-09-2025";
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${userSavedApiKey}`;
+
+            const payload = { contents: [{ parts: [{ text: userPrompt }] }] };
+            if (systemInstruction) payload.systemInstruction = { parts: [{ text: systemInstruction }] };
+
+            const response = await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) throw new Error("Google AI handshaking faulted. Check key validity.");
+            const result = await response.json();
+            return result.candidates?.[0]?.content?.parts?.[0]?.text || "Malformed return stream.";
+        }
+
+        async function triggerPresetAI(type) {
+            const prompt = `Perform complete tracking synthesis on our ${allAlerts.length} active database records. Generate structural guidelines based on categories.`;
+            setTerminalLoading(true, "Compiling Token Context...");
+            try {
+                const out = await fetchGeminiLlm(prompt, "You are a master tactical advisor.");
+                displayTerminalOutput(out);
+            } catch (e) { showToast(e.message, "error"); }
+            finally { setTerminalLoading(false); }
+        }
+
+        async function triggerCustomAIQuery() {
+            const q = document.getElementById('ai-custom-prompt').value.trim();
+            if(!q) return;
+            setTerminalLoading(true, "Querying Gemini Matrix...");
+            try {
+                const out = await fetchGeminiLlm(q, "You are an analytics compiler.");
+                displayTerminalOutput(out);
+                document.getElementById('ai-custom-prompt').value = "";
+            } catch(e) { showToast(e.message, "error"); }
+            finally { setTerminalLoading(false); }
+        }
+
+        function setTerminalLoading(load, title="") {
+            const scr = document.getElementById('ai-loading-screen');
+            document.getElementById('ai-loader-title').textContent = title || "Processing...";
+            load ? scr.classList.remove('hidden') : scr.classList.add('hidden');
+        }
+        function displayTerminalOutput(txt) {
+            document.getElementById('terminal-initial').classList.add('hidden');
+            const container = document.getElementById('terminal-markdown-container');
+            container.classList.remove('hidden');
+            container.innerHTML = marked.parse(txt);
+            document.getElementById('btn-copy-terminal').removeAttribute('disabled');
+        }
+
+        // Framework UI details
+        function switchPage(p) {
+            document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`page-${p}`).classList.remove('hidden');
+        }
+        function toggleTheme() { document.documentElement.classList.toggle('dark'); }
+        function initTheme() { document.documentElement.classList.add('dark'); }
+        function showToast(m, t) {
+            const c = document.getElementById('toast-container');
+            const el = document.createElement('div');
+            el.className = `p-4 bg-gray-900 text-white rounded-xl text-xs font-bold border ${t==='error'?'border-red-500':'border-emerald-500'}`;
+            el.textContent = m; c.appendChild(el); setTimeout(() => el.remove(), 3000);
+        }
+        function triggerDataSync() { fetchLiveAlerts(); }
+
+        window.onload = initApp;
     </script>
 </body>
 </html>
