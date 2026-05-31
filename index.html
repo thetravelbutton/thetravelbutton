@@ -1581,7 +1581,7 @@ button {
 
       <!-- SUGGESTION 1: SOCIAL MEDIA LOGO & LINK GATEWAY -->
       <div class="hero-social-hub reveal reveal-5">
-        <span class="social-hub-title">Connect with @_thetravelbutton_</span>
+        <span class="social-hub-title">Connect with @thetravelbutton</span>
         <div class="social-hub-grid">
           <a href="https://www.instagram.com/_travelbutton_" target="_blank" class="social-brand-pill instagram" title="Instagram Profile">
             <i class="fa-brands fa-instagram"></i> Instagram
@@ -1858,8 +1858,8 @@ button {
 <script>
 'use strict';
 
-// ─── EXTENSIVE PRODUCTION DATA MATRIX ───
-const DATA_FEED = [
+// ─── SAFE LOCAL FALLBACK DATA (Used if data.json is temporarily offline) ───
+const FALLBACK_DATA = [
   { id: 's1', badge: 'Flight', drop: '−38%', dropStyle: 'sage', title: 'NYC → Reykjavik — Unreported Seat Dump', desc: 'Icelandair released a block of 200+ unsold seats on the JFK-KEF corridor. Round-trip flights dropped to $341 — a 38% deviation from historical averages.', ts: '14 min ago · JFK-KEF', link: 'https://skyscanner.pxf.io/your-link', image: 'https://images.unsplash.com/photo-1504893524553-ac55fce698be?q=80&w=600' },
   { id: 's2', badge: 'Hotel', drop: '−51%', dropStyle: 'gold', title: 'Lisbon 5★ Glut — Conference Cancellation Fallout', desc: 'A 2,200-pax European fintech summit cancelled 6 weeks out. Room blocks are now redirected to background clearance channels at 51% off.', ts: '1 hr ago · Lisbon', link: 'https://booking.com/your-affiliate-id', image: 'https://images.unsplash.com/photo-1509840144524-a2970a66d90d?q=80&w=600' },
   { id: 's3', badge: 'Hype', drop: '↑ 280%', dropStyle: 'gold', title: 'Georgia (Country) Search Hype — Pre-Correction', desc: 'Tbilisi search velocity spikes 280% in 60 days. Historical loops show this preceding a 40% rise in dynamic hospitality cost indexing.', ts: '12 hrs ago · Tbilisi', link: 'https://airbnb.pvxt.io/your-link', image: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=600' },
@@ -1881,13 +1881,12 @@ const TICKER_ITEMS = [
 ];
 
 const chipMap = { 'Flight': 'chip-flight', 'Hotel': 'chip-hotel', 'Hype': 'chip-hype' };
-let allCards = DATA_FEED.map(c => ({ ...c }));
+let allCards = [];
 let currentFilter = 'all';
 let currentPeriod = 'monthly';
 
 /* ─── DYNAMIC DIAGONAL VECTOR GENERATOR ─── */
 function getDiagonalVectorSVG(badge) {
-  // Return different SVGs based on badge category
   if (badge === 'Flight') {
     return `
       <svg class="glide-vector" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="animation-delay: 0.5s; animation-duration: 9s;">
@@ -1943,23 +1942,19 @@ function getHypeBadge() {
 
 /* ─── SINGLE PAGE ROUTING ENGINE ─── */
 function switchView(viewId) {
-  // Toggle section wrappers
   document.querySelectorAll('.view-section').forEach(section => {
     section.classList.remove('active');
   });
   const targetView = document.getElementById(`view-${viewId}`);
   if (targetView) targetView.classList.add('active');
 
-  // Highlight links
   document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.remove('active');
   });
   const activeLink = document.getElementById(`link-${viewId}`);
   if (activeLink) activeLink.classList.add('active');
 
-  // Trigger Simurq guidance dialogue based on view context
   updateSimurqGuideState(viewId);
-
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1979,13 +1974,9 @@ function renderCards() {
     return `
       <article class="deal-card" onclick="openModal('${c.id}')">
         <div class="card-img-wrap">
-          <!-- Real context high-quality Unsplash image -->
           <img class="card-img" src="${c.image}" alt="${c.title}" loading="lazy">
-          
-          <!-- Diagonal Gliding Vector Overlay -->
           ${getDiagonalVectorSVG(c.badge)}
-
-          <span class="card-drop-badge ${c.dropStyle}">${c.drop}</span>
+          <span class="card-drop-badge ${c.dropStyle || 'sage'}">${c.drop}</span>
           <span class="card-chip ${chip}">${c.badge}</span>
           ${isHype ? getHypeBadge() : ''}
         </div>
@@ -2015,11 +2006,8 @@ function applyFilter(type, btn) {
   renderCards();
 }
 
-/* ─── PILLAR GATEWAY SYSTEM ACTION ─── */
 function pressPillar(category) {
   switchView('dashboard');
-  
-  // Update state active button filters
   const filterButtons = document.querySelectorAll('.fpill');
   filterButtons.forEach(btn => {
     if (category === 'all' && btn.textContent.toLowerCase().includes('all')) {
@@ -2057,7 +2045,6 @@ function openCheckout(tierName) {
     <div class="modal-body">
       <h2 class="modal-title" style="margin-bottom:6px;">Subscribe to ${tierName}</h2>
       <p class="modal-desc" style="font-size:13px; color:var(--text-secondary);">Secure authorization with travel mitigation safeguards.</p>
-      
       <form onsubmit="handleCheckoutSubmit(event, '${tierName}')">
         <div class="payment-field">
           <label>Email Address</label>
@@ -2085,7 +2072,7 @@ function handleCheckoutSubmit(event, tierName) {
     <div class="modal-body" style="text-align:center; padding:40px 20px;">
       <div style="font-size:48px; margin-bottom:16px;">✨</div>
       <h2 class="modal-title">Welcome to the Terminal!</h2>
-      <p class="modal-desc" style="max-width:400px; margin:0 auto 24px; line-height:1.6;">Your subscription to <strong>${tierName}</strong> has been successfully authorized. We have sent credentials to your inbox.</p>
+      <p class="modal-desc" style="max-width:400px; margin:0 auto 24px; line-height:1.6;">Your subscription to <strong>${tierName}</strong> has been successfully authorized.</p>
       <button class="btn-primary" style="padding:10px 24px; border-radius:6px;" onclick="closeModal()">Enter System</button>
     </div>`;
 }
@@ -2125,12 +2112,9 @@ function runCalculation() {
 
   let rawHours = (deviation / decayRate) * (baseline / 400) * (1 / spikeMultiplier);
   let predictedHours = Math.max(0.5, Math.min(72, rawHours));
-  let finalDisplayValue = predictedHours.toFixed(1);
-
-  let confidence = Math.max(65, 98 - (deviation * 0.4) - (spikeMultiplier * 10));
-
-  document.getElementById('calcOutputHours').textContent = `${finalDisplayValue} Hours`;
-  document.getElementById('calcOutputConfidence').textContent = `${confidence.toFixed(0)}% Historical Yield Fit`;
+  
+  document.getElementById('calcOutputHours').textContent = `${predictedHours.toFixed(1)} Hours`;
+  document.getElementById('calcOutputConfidence').textContent = `${Math.max(65, 98 - (deviation * 0.4) - (spikeMultiplier * 10)).toFixed(0)}% Historical Yield Fit`;
 }
 
 /* ─── SUBSCRIPTION PRICING TOGGLE ─── */
@@ -2156,7 +2140,7 @@ function setPricingPeriod(period) {
   }
 }
 
-/* ─── SIMURQ INTERACTIVE INTELLIGENCE COMPANION ─── */
+/* ─── SIMURQ INTERACTIVE COMPANION ─── */
 const SIMURQ_CHATS = {
   dashboard: [
     "I'm keeping an eye on transatlantic seat dumps! Watch out for dynamic corrections on JFK-KEF.",
@@ -2179,11 +2163,11 @@ function updateSimurqGuideState(viewId) {
   const bubble = document.getElementById('simurqBubble');
   const text = document.getElementById('simurqText');
   const title = document.getElementById('simurqTitle');
+  if(!bubble || !text || !title) return;
 
   title.textContent = "Simurq Engine Core";
   const options = SIMURQ_CHATS[viewId] || SIMURQ_CHATS['dashboard'];
   text.textContent = options[0];
-
   bubble.classList.add('visible');
 }
 
@@ -2191,13 +2175,10 @@ function triggerSimurqInteraction() {
   const activeLink = document.querySelector('.nav-link.active');
   const viewId = activeLink ? activeLink.id.replace('link-', '') : 'dashboard';
   const options = SIMURQ_CHATS[viewId] || SIMURQ_CHATS['dashboard'];
-  
   const bubble = document.getElementById('simurqBubble');
   const text = document.getElementById('simurqText');
 
-  const randomText = options[Math.floor(Math.random() * options.length)];
-  text.textContent = randomText;
-
+  text.textContent = options[Math.floor(Math.random() * options.length)];
   bubble.classList.add('visible');
 }
 
@@ -2206,66 +2187,46 @@ function dismissSimurq() {
 }
 
 /* ─── COLLAPSIBLE TRAY DATA MATRIX ─── */
-const CONGESTION = [
-  { city: 'Tokyo, JPN', pct: 92, color: '#f08878' },
-  { city: 'Davos, CHE', pct: 88, color: '#f08878' },
-  { city: 'Dubai, UAE', pct: 61, color: '#dbb85a' }
-];
-const RENTALS = [
-  { city: 'Medellín', val: '−31%' },
-  { city: 'Lisbon', val: '−18%' },
-  { city: 'Chiang Mai', val: '−12%' }
-];
-const FLOORS = [
-  { route: 'MIA → BCN', price: '$289' },
-  { route: 'NYC → LHR', price: '$341' },
-  { route: 'LAX → NRT', price: '$487' }
-];
-const HYPE_VELOCITY = [
-  { city: 'Tbilisi, GEO', val: '↑ 280%' },
-  { city: 'Reykjavik, ISL', val: '↑ 140%' },
-  { city: 'Bangkok, THA', val: '↑ 95%' }
-];
+const CONGESTION = [{ city: 'Tokyo, JPN', pct: 92, color: '#f08878' }, { city: 'Davos, CHE', pct: 88, color: '#f08878' }, { city: 'Dubai, UAE', pct: 61, color: '#dbb85a' }];
+const RENTALS = [{ city: 'Medellín', val: '−31%' }, { city: 'Lisbon', val: '−18%' }, { city: 'Chiang Mai', val: '−12%' }];
+const FLOORS = [{ route: 'MIA → BCN', price: '$289' }, { route: 'NYC → LHR', price: '$341' }, { route: 'LAX → NRT', price: '$487' }];
+const HYPE_VELOCITY = [{ city: 'Tbilisi, GEO', val: '↑ 280%' }, { city: 'Reykjavik, ISL', val: '↑ 140%' }, { city: 'Bangkok, THA', val: '↑ 95%' }];
 
 function buildAnalytics() {
-  const congContainer = document.getElementById('congBlock');
-  if (congContainer) {
-    congContainer.innerHTML = CONGESTION.map(c => `
-      <div class="cong-row">
-        <span class="cong-city">${c.city}</span>
-        <div class="cong-track"><div class="cong-fill" style="width:${c.pct}%;background:${c.color};height:100%;"></div></div>
-        <span class="cong-val">${c.pct}%</span>
-      </div>`).join('');
-  }
+  document.getElementById('congBlock').innerHTML = CONGESTION.map(c => `
+    <div class="cong-row"><span class="cong-city">${c.city}</span><div class="cong-track"><div class="cong-fill" style="width:${c.pct}%;background:${c.color};height:100%;"></div></div><span class="cong-val">${c.pct}%</span></div>`).join('');
+  document.getElementById('rentalBlock').innerHTML = RENTALS.map(r => `
+    <div class="rental-row"><span>${r.city}</span><span class="rental-val">${r.val}</span></div>`).join('');
+  document.getElementById('floorBlock').innerHTML = FLOORS.map(f => `
+    <div class="floor-row"><span>${f.route}</span><span class="floor-price">${f.price}</span></div>`).join('');
+  document.getElementById('hypeBlock').innerHTML = HYPE_VELOCITY.map(h => `
+    <div class="hype-row"><span>${h.city}</span><span class="hype-val">${h.val}</span></div>`).join('');
+}
 
-  const rentalContainer = document.getElementById('rentalBlock');
-  if (rentalContainer) {
-    rentalContainer.innerHTML = RENTALS.map(r => `
-      <div class="rental-row"><span>${r.city}</span><span class="rental-val">${r.val}</span></div>`).join('');
-  }
-
-  const floorContainer = document.getElementById('floorBlock');
-  if (floorContainer) {
-    floorContainer.innerHTML = FLOORS.map(f => `
-      <div class="floor-row"><span>${f.route}</span><span class="floor-price">${f.price}</span></div>`).join('');
-  }
-
-  const hypeContainer = document.getElementById('hypeBlock');
-  if (hypeContainer) {
-    hypeContainer.innerHTML = HYPE_VELOCITY.map(h => `
-      <div class="hype-row"><span>${h.city}</span><span class="hype-val">${h.val}</span></div>`).join('');
+/* ─── LIVE ASYNCHRONOUS DATA FETCHER ─── */
+async function initializeDataTerminal() {
+  try {
+    const response = await fetch('data.json');
+    if (!response.ok) throw new Error("JSON configuration stream offline.");
+    allCards = await response.json();
+  } catch (error) {
+    console.warn("Using baseline configuration data streams: ", error.message);
+    allCards = [...FALLBACK_DATA];
+  } finally {
+    renderCards();
   }
 }
 
 // ─── RUN SYSTEM INITIALIZATION ───
 initTicker();
-renderCards();
+initializeDataTerminal();
 runCalculation();
 buildAnalytics();
 
 // Automatically prompt Simurq after a small delay
 setTimeout(() => {
-  document.getElementById('simurqBubble').classList.add('visible');
+  const bbl = document.getElementById('simurqBubble');
+  if(bbl) bbl.classList.add('visible');
 }, 1800);
 </script>
 </body>
