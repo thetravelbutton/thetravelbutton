@@ -1,0 +1,101 @@
+[
+  {
+    "id": "s1",
+    "badge": "Flight",
+    "drop": "−38%",
+    "dropStyle": "sage",
+    "title": "NYC → Reykjavik — Unreported Seat Dump",
+    "desc": "Icelandair released a block of 200+ unsold seats on the JFK-KEF corridor. Round-trip flights dropped to $341 — a 38% deviation from historical averages.",
+    "ts": "14 min ago · JFK-KEF",
+    "link": "https://skyscanner.pxf.io/your-link",
+    "image": "https://images.unsplash.com/photo-1504893524553-ac55fce698be?q=80&w=600"
+  },
+  {
+    "id": "s2",
+    "badge": "Hotel",
+    "drop": "−51%",
+    "dropStyle": "gold",
+    "title": "Lisbon 5★ Glut — Conference Cancellation Fallout",
+    "desc": "A 2,200-pax European fintech summit cancelled 6 weeks out. Room blocks are now redirected to background clearance channels at 51% off.",
+    "ts": "1 hr ago · Lisbon",
+    "link": "https://booking.com/your-affiliate-id",
+    "image": "https://images.unsplash.com/photo-1509840144524-a2970a66d90d?q=80&w=600"
+  },
+  {
+    "id": "s3",
+    "badge": "Hype",
+    "drop": "↑ 280%",
+    "dropStyle": "gold",
+    "title": "Georgia (Country) Search Hype — Pre-Correction",
+    "desc": "Tbilisi search velocity spikes 280% in 60 days. Historical loops show this preceding a 40% rise in dynamic hospitality cost indexing.",
+    "ts": "12 hrs ago · Tbilisi",
+    "link": "https://airbnb.pvxt.io/your-link",
+    "image": "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=600"
+  },
+  {
+    "id": "s4",
+    "badge": "Flight",
+    "drop": "−44%",
+    "dropStyle": "sage",
+    "title": "Miami → Barcelona — Error Fare Spike",
+    "desc": "Pricing distribution error registered systemic route validation metrics at $289 round-trip with taxes loaded. Booking class L rules active.",
+    "ts": "Just Now · MIA-BCN",
+    "link": "https://skyscanner.pxf.io/your-link",
+    "image": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=600"
+  },
+  {
+    "id": "s5",
+    "badge": "Hotel",
+    "drop": "−33%",
+    "dropStyle": "sage",
+    "title": "Bali Canggu Premium Villa Capacity Overflow",
+    "desc": "Dynamic off-season supply optimization opened localized premium listings at a verified 33% discount vs trailing pricing lines.",
+    "ts": "2 hrs ago · Canggu",
+    "link": "https://booking.com/your-affiliate-id",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=600"
+  },
+  {
+    "id": "s6",
+    "badge": "Hype",
+    "drop": "↑ 140%",
+    "dropStyle": "gold",
+    "title": "Reykjavik Interest Velocity Vector Inbound Surge",
+    "desc": "Transatlantic interest vectors track a steady 140% incline. Early locking of Iceland segments is recommended before yield corrections occur.",
+    "ts": "5 hrs ago · Iceland",
+    "link": "https://airbnb.pvxt.io/your-link",
+    "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=600"
+  },
+  {
+    "id": "s7",
+    "badge": "Flight",
+    "drop": "−31%",
+    "dropStyle": "sage",
+    "title": "LAX → NRT Tokyo Off-Peak Capacity Re-Index",
+    "desc": "All Nippon Airways (ANA) opened economy saver fare inventory tiers on rolling midweek paths. Entry-level fares are currently down to $487.",
+    "ts": "3 hrs ago · LAX-NRT",
+    "link": "https://skyscanner.pxf.io/your-link",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600"
+  },
+  {
+    "id": "s8",
+    "badge": "Hotel",
+    "drop": "−41%",
+    "gold": "gold",
+    "title": "Medellín Furnished Monthly Rent Floors",
+    "desc": "Excess regional capacity in El Poblado drove monthly indices to historic lows of $620 per segment. Window estimated at 4-6 months.",
+    "ts": "6 hrs ago · Medellín",
+    "link": "https://booking.com/your-affiliate-id",
+    "image": "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=600"
+  },
+  {
+    "id": "s9",
+    "badge": "Hype",
+    "drop": "↑ 95%",
+    "dropStyle": "sage",
+    "title": "Bangkok Query Momentum Spikes Pre-Season",
+    "desc": "Inbound travel queries surge 95%. Direct accommodation indexing suggests current pricing windows will close as occupancy thresholds hit 85%.",
+    "ts": "10 hrs ago · Thailand",
+    "link": "https://skyscanner.pxf.io/your-link",
+    "image": "https://images.unsplash.com/photo-1528181304800-2f190854897d?q=80&w=600"
+  }
+]
