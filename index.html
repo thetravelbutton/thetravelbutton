@@ -1,870 +1,256 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The TravelButton | Cross-Border Intelligence Directory</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f2fbf7',
-                            100: '#e2f7ed',
-                            500: '#10b981', /* Premium Emerald Sage Accent */
-                            600: '#059669',
-                            700: '#047857',
-                            950: '#022c22'
-                        },
-                        cyber: {
-                            light: '#1e293b',
-                            dark: '#0f172a'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TravelButton — Secure Travel Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2=family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <style>
-        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
-        .mono-text { font-family: 'JetBrains Mono', monospace; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .dark .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .glass-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-        .markdown-container p { margin-bottom: 0.75rem; }
-        .markdown-container p:last-child { margin-bottom: 0; }
-        .markdown-container a { color: #10b981; text-decoration: underline; font-weight: 500; }
-        .markdown-container a:hover { color: #059669; }
-        .markdown-container ul, .markdown-container ol { margin-left: 1.25rem; margin-bottom: 0.75rem; list-style-type: disc; }
-        .markdown-container li { margin-bottom: 0.25rem; }
-        .markdown-container strong { font-weight: 700; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        @keyframes shimmer { 100% { transform: translateX(100%); } }
-        .shimmer-effect::after {
-            position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform: translateX(-100%);
-            background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 100%);
-            animation: shimmer 2s infinite; content: '';
-        }
-        .dark .shimmer-effect::after {
-            background-image: linear-gradient(90deg, rgba(15,23,42,0) 0%, rgba(15,23,42,0.1) 20%, rgba(255,255,255,0.05) 60%, rgba(15,23,42,0) 100%);
-        }
-        .ai-glow { box-shadow: 0 0 15px rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3); }
-        .dark .ai-glow { box-shadow: 0 0 25px rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); }
-        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
-        .animate-marquee { display: flex; width: max-content; animation: marquee 30s linear infinite; }
-        .animate-marquee:hover { animation-play-state: paused; }
-    </style>
+<style>
+/* ─── DESIGN TOKENS ─────────────────────────────────────────── */
+:root {
+  --sage-canvas:    #7a9e87;
+  --sage-mid:       #82A48D;
+  --sage-light:     #a3bfab;
+  --sage-xlight:    #c8dace;
+  --sage-pale:      #e4ede6;
+  --sage-frost:     #f0f5f1;
+  --sage-deep:      #4a6b54;
+  --sage-ink:       #2d4235;
+
+  --cream:          #faf8f3;
+  --cream-warm:     #f5f0e8;
+  --cream-border:   #e8e2d8;
+
+  --slate:          #2c3330;
+  --slate-mid:      #3d4b45;
+  --slate-soft:     #4e5e57;
+  --slate-mute:     #6b7d74;
+
+  --gold:           #c49a3c;
+  --gold-light:     #dbb85a;
+  --gold-pale:      #f2e4b8;
+
+  --signal:         #c0442c;
+  --signal-soft:    #e06448;
+  --signal-pale:    #fde8e4;
+
+  --text-primary:   #1e2e28;
+  --text-secondary: #4a5e55;
+  --text-muted:     #7a8c82;
+
+  --ff-display:     'Playfair Display', Georgia, serif;
+  --ff-body:        'DM Sans', sans-serif;
+  --ff-mono:        'DM Mono', monospace;
+
+  --radius-sm:      6px;
+  --radius-md:      12px;
+  --radius-lg:      20px;
+
+  --shadow-sm:      0 1px 4px rgba(45,66,53,0.08), 0 0 0 1px rgba(45,66,53,0.04);
+  --shadow-md:      0 4px 20px rgba(45,66,53,0.12), 0 1px 4px rgba(45,66,53,0.06);
+  --shadow-lg:      0 12px 48px rgba(45,66,53,0.18), 0 4px 12px rgba(45,66,53,0.08);
+  --shadow-card:    0 2px 12px rgba(45,66,53,0.10), 0 0 0 1px rgba(45,66,53,0.06);
+
+  --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── RESET & LAYOUT ────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--sage-canvas);
+  color: var(--text-primary);
+  font-family: var(--ff-body);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(255,255,255,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 85%, rgba(45,66,53,0.2) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── FIXED NAV ─────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 48px;
+  background: rgba(122, 158, 135, 0.8);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-logo-icon { width: 32px; height: 32px; background: var(--cream); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: var(--shadow-sm); }
+.nav-wordmark { font-size: 16px; font-weight: 600; color: var(--cream); letter-spacing: -0.02em; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-pill { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 5px 12px; font-size: 11px; font-weight: 500; color: var(--cream); }
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: #6ee898; box-shadow: 0 0 8px #6ee898; }
+.status-dot.error { background: var(--signal-soft); box-shadow: 0 0 8px var(--signal-soft); }
+
+/* ─── HERO ──────────────────────────────────────────────────── */
+.hero { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 24px 40px; text-align: center; position: relative; z-index: 1; }
+.hero-headline { font-family: var(--ff-display); font-size: clamp(40px, 5.5vw, 64px); font-weight: 400; line-height: 1.1; color: var(--cream); margin-bottom: 20px; }
+.hero-headline em { font-style: italic; color: var(--gold-pale); }
+.hero-sub { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.85); max-width: 500px; margin-bottom: 24px; }
+
+/* ─── MAIN PLATFORM CONTAINER ───────────────────────────────── */
+.main-content { position: relative; z-index: 1; background: var(--sage-frost); border-radius: 28px 28px 0 0; padding: 40px 48px 60px; }
+.section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+.section-title { font-family: var(--ff-display); font-size: 26px; font-style: italic; color: var(--text-primary); }
+
+/* FILTER PILLS */
+.filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.fpill { font-size: 12px; font-weight: 500; color: var(--text-muted); padding: 8px 16px; border-radius: 20px; border: 1.5px solid var(--cream-border); background: var(--cream); transition: all 0.2s; }
+.fpill.on { color: var(--cream); border-color: var(--sage-deep); background: var(--sage-deep); font-weight: 600; }
+
+/* CARD GRID */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+
+/* CARD DESIGN */
+.deal-card { background: var(--cream); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); border: 1px solid rgba(45,66,53,0.06); overflow: hidden; display: flex; flex-direction: column; position: relative; }
+.card-img-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: var(--sage-xlight); }
+.card-img { width: 100%; height: 100%; object-fit: cover; }
+.card-drop-badge { position: absolute; bottom: 12px; left: 12px; font-family: var(--ff-display); font-size: 20px; font-weight: 600; padding: 4px 12px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.9); color: var(--sage-deep); }
+.card-chip { position: absolute; bottom: 12px; right: 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; background: var(--sage-deep); color: var(--cream); }
+.card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; position: relative; }
+.title-container { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
+.card-title { font-family: var(--ff-display); font-size: 18px; font-weight: 500; color: var(--text-primary); line-height: 1.3; }
+.card-desc { font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 20px; flex: 1; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--cream-border); }
+.card-ts { font-size: 11px; color: var(--text-muted); }
+.card-cta { font-size: 12px; font-weight: 600; color: var(--sage-deep); background: var(--sage-pale); border: 1px solid var(--sage-light); padding: 6px 14px; border-radius: var(--radius-sm); }
+
+/* MICRO-ANIMATED OVERLAYS & PATHS */
+.glyph-hype-overlay { position: absolute; top: 12px; right: 12px; z-index: 10; width: 32px; height: 32px; background: rgba(255,255,255,0.85); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(74,107,84,0.2); animation: floatOverlay 3s ease-in-out infinite; }
+@keyframes floatOverlay { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.glyph-home-inline { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; margin-top: 1px; flex-shrink: 0; }
+.glyph-home-pulse { position: absolute; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--gold); animation: pulseRing 2s ease-out infinite; opacity: 0; }
+@keyframes pulseRing { 0% { transform: scale(0.5); opacity: 0.8; } 100% { transform: scale(1.4); opacity: 0; } }
+.flight-track-container { position: relative; width: 100%; height: 20px; margin-bottom: 12px; background: rgba(74,107,84,0.04); border-radius: 4px; overflow: hidden; }
+.glyph-airplane-runner { position: absolute; top: 2px; left: -30px; animation: cruisePlane 6s linear infinite; }
+@keyframes cruisePlane { 0% { left: -30px; } 100% { left: 100%; } }
+
+/* ─── SECURE CREDENTIAL CONTROLS PANEL ───────────────────────── */
+.secure-panel { background: var(--slate); padding: 24px 48px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--sage-frost); }
+.secure-grid { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 16px; align-items: flex-end; max-width: 1400px; margin: 0 auto; }
+.input-group { display: flex; flex-direction: column; gap: 6px; }
+.input-group label { font-family: var(--ff-mono); font-size: 10px; color: var(--sage-light); text-transform: uppercase; letter-spacing: 0.05em; }
+.secure-input { background: var(--slate-mid); border: 1px solid var(--slate-soft); border-radius: var(--radius-sm); padding: 10px 14px; font-family: var(--ff-mono); font-size: 12px; color: var(--cream); outline: none; width: 100%; }
+.secure-input:focus { border-color: var(--sage-light); }
+.btn-connect { background: var(--sage-deep); color: var(--cream); font-family: var(--ff-mono); font-size: 12px; font-weight: 600; padding: 11px 24px; border-radius: var(--radius-sm); cursor: pointer; transition: background 0.2s; height: 40px; }
+.btn-connect:hover { background: #5b8266; }
+
+.footer { background: var(--slate); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 11px; }
+@media (max-width: 768px) { .nav { padding: 16px 20px; } .main-content { padding: 32px 20px; } .secure-grid { grid-template-columns: 1fr; } .secure-panel { padding: 24px 20px; } }
+</style>
 </head>
-<body class="bg-[#F4F7F5] text-[#0F172A] dark:bg-[#030712] dark:text-[#F3F4F6] min-h-screen antialiased flex flex-col selection:bg-brand-500 selection:text-white pb-12">
+<body>
 
-    <div class="w-full bg-brand-600 dark:bg-brand-950/80 text-white text-[10px] mono-text font-bold py-2.5 overflow-hidden border-b border-brand-700/50 dark:border-brand-900/40 relative z-20">
-        <div class="animate-marquee flex gap-12 items-center whitespace-nowrap">
-            <span>📡 TRAVELBUTTON DIRECT DIAL ANOMALY: MILAN TO BAKU FARE RESET DEVIATION DETECTED (-42%)</span>
-            <span>🔥 LIVE RENTS INDEX: TOKYO MICRO-UNIT LISTINGS DROP BELOW VALUE FLOOR</span>
-            <span>⚡️ SYSTEM STATUS: ALL CROSS-BORDER LOGISTICAL NODES SYNCHRONIZED NATIVELY</span>
-            <span>🚨 AIR CARRIER OPTIMIZER: PARIS ROUTING BYPASSES AIRSPACE CONFLICT BLOCKS</span>
-            <span>📡 TRAVELBUTTON DIRECT DIAL ANOMALY: MILAN TO BAKU FARE RESET DEVIATION DETECTED (-42%)</span>
-            <span>🔥 LIVE RENTS INDEX: TOKYO MICRO-UNIT LISTINGS DROP BELOW VALUE FLOOR</span>
-        </div>
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🧭</div>
+    <span class="nav-wordmark">Travel<span>Button</span></span>
+  </div>
+  <div class="nav-right">
+    <div class="nav-pill"><div class="status-dot" id="statusDot"></div><span id="statusLabel">Standby Mode</span></div>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1 class="hero-headline">Lock value<br><em>before the market</em><br>corrects itself.</h1>
+  <p class="hero-sub">Connect your secure local access keys below to sync this terminal with your Airtable database engine directly.</p>
+</section>
+
+<div class="secure-panel">
+  <div class="secure-grid">
+    <div class="input-group">
+      <label>Airtable Base ID</label>
+      <input id="baseId" type="text" class="secure-input" placeholder="appXXXXXXXXXXXXXX">
+    </div>
+    <div class="input-group">
+      <label>Table Name</label>
+      <input id="tableName" type="text" class="secure-input" value="Travel Anomalies">
+    </div>
+    <div class="input-group">
+      <label>Personal Access Token (PAT)</label>
+      <input id="token" type="password" class="secure-input" placeholder="patXXXXXXXXXXXXXX">
+    </div>
+    <button class="btn-connect" onclick="saveCredentialsAndFetch()">Sync Live Terminal</button>
+  </div>
+</div>
+
+<div class="main-content">
+  <section id="signals">
+    <div class="section-head">
+      <h2 class="section-title">Live Anomaly Feed</h2>
+      <div class="nav-pill" style="background:transparent; color:var(--text-muted); border:none;" id="feedCounter">0 anomalies registered</div>
     </div>
 
-    <div class="fixed top-0 left-1/4 w-96 h-96 bg-emerald-500/10 dark:bg-emerald-600/5 rounded-full blur-3xl pointer-events-none z-0"></div>
-
-    <div class="max-w-6xl w-full mx-auto px-4 md:px-8 z-10 relative flex-grow">
-        
-        <header class="py-8 md:py-12 border-b border-gray-200/60 dark:border-gray-800/60 mb-8 md:mb-12">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-                <div>
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="inline-flex h-3 w-3 relative">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                        </span>
-                        <span class="mono-text text-xs uppercase tracking-widest text-brand-600 dark:text-brand-500 font-semibold bg-brand-50 dark:bg-brand-950/40 px-2.5 py-1 rounded border border-brand-100 dark:border-brand-900/30">System Live • Transit Feeds</span>
-                    </div>
-                    <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tighter">
-                        The Travel<span class="text-brand-600 dark:text-brand-400">Button</span>
-                    </h1>
-                </div>
-
-                <div class="flex items-center gap-3 self-start md:self-auto">
-                    <button onclick="openKeyModal()" id="key-status-badge" class="flex items-center gap-2 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-rose-500/20 transition">
-                        <i class="fa-solid fa-key"></i> <span id="key-status-text">AI Offline: Configure Key</span>
-                    </button>
-
-                    <button onclick="triggerDataSync()" class="p-2.5 bg-white dark:bg-gray-900/60 border border-gray-200/50 dark:border-gray-800/50 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 transition" title="Refresh Feed"><i class="fa-solid fa-rotate"></i></button>
-                    <button onclick="toggleTheme()" class="p-2.5 bg-white dark:bg-gray-900/60 border border-gray-200/50 dark:border-gray-800/50 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 transition" id="theme-btn" title="Toggle Visual Style"><i class="fa-regular fa-moon"></i></button>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-7 space-y-5 order-2 md:order-1">
-                    <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-light">
-                        High-performance cross-border intelligence tracker. Logistical arbitrage, transit anomalies, corporate asset advantages, and travel hype delivered natively.
-                    </p>
-
-                    <nav class="flex flex-wrap gap-2 md:gap-4 border-b border-gray-200/40 dark:border-gray-800/40 pb-2 w-max text-sm font-semibold text-gray-500 dark:text-gray-400">
-                        <button onclick="switchPage('stream')" id="nav-stream" class="tab-link active pb-2 relative text-brand-600 dark:text-brand-400 transition">
-                            Live Stream <span class="bg-brand-500/10 text-brand-600 dark:text-brand-400 text-[10px] px-1.5 py-0.5 rounded ml-1" id="alert-counter">...</span>
-                        </button>
-                        <button onclick="switchPage('ai-analyst')" id="nav-ai-analyst" class="tab-link pb-2 hover:text-brand-600 dark:hover:text-brand-400 transition">
-                            <i class="fa-solid fa-wand-magic-sparkles mr-1 text-brand-500"></i> AI Analyst
-                        </button>
-                        <button onclick="switchPage('about')" id="nav-about" class="tab-link pb-2 hover:text-brand-600 dark:hover:text-brand-400 transition">About</button>
-                        <button onclick="switchPage('contact')" id="nav-contact" class="tab-link pb-2 hover:text-brand-600 dark:hover:text-brand-400 transition">Contact HQ</button>
-                    </nav>
-
-                    <div class="flex flex-col gap-2 pt-2">
-                        <span class="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-extrabold">Secure Communications Pipelines</span>
-                        <div class="flex items-center gap-4 text-gray-400 dark:text-gray-500">
-                            <a href="https://instagram.com/_thetravelbutton_" target="_blank" class="hover:text-pink-500 transition text-xl" title="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://t.me/thetravelbutton" target="_blank" class="hover:text-emerald-400 transition text-xl" title="Telegram Channel"><i class="fab fa-telegram"></i></a>
-                            <a href="https://fb.com/thetravelbutton" target="_blank" class="hover:text-emerald-600 transition text-xl" title="Facebook Page"><i class="fab fa-facebook"></i></a>
-                            <a href="https://www.youtube.com/@TheTravelButton" target="_blank" class="hover:text-red-500 transition text-xl" title="YouTube Channel"><i class="fab fa-youtube"></i></a>
-                            <a href="https://www.tiktok.com/@thetravelbutton" target="_blank" class="hover:text-zinc-900 dark:hover:text-white transition text-xl" title="TikTok Profile"><i class="fab fa-tiktok"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="md:col-span-5 order-1 md:order-2">
-                    <div class="relative overflow-hidden rounded-3xl group border border-gray-200/50 dark:border-gray-800/50 shadow-2xl shadow-brand-500/5">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#030712]/75 via-transparent to-transparent z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800" class="w-full h-56 md:h-64 object-cover transform group-hover:scale-105 transition-all duration-700" alt="The TravelButton Hub">
-                        <div class="absolute bottom-5 left-5 right-5 z-20">
-                            <span class="mono-text text-[9px] uppercase bg-brand-500 text-white px-2.5 py-1 rounded font-bold tracking-widest">Operations Hub</span>
-                            <p class="text-white text-sm font-semibold mt-1.5 leading-tight">Cross-Border Routing Engine</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <main id="page-stream" class="page-content space-y-8">
-            
-            <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs uppercase tracking-widest text-brand-600 dark:text-brand-400 font-extrabold flex items-center gap-1.5">
-                        <span class="h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span> 🔥 HOT ARBITRAGE CAROUSEL
-                    </span>
-                    <span class="text-[10px] text-gray-400 dark:text-gray-500 font-medium">Swipe/Scroll to explore featured nodes</span>
-                </div>
-                <div class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2" id="hot-deals-slider">
-                    <div class="flex-shrink-0 w-80 bg-gray-100 dark:bg-gray-900/40 p-4 rounded-2xl border border-gray-200/50 dark:border-gray-800/50 animate-pulse flex items-center justify-center text-xs text-gray-400">Gathering highlight feeds...</div>
-                </div>
-            </div>
-
-            <div class="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between bg-white dark:bg-gray-900/30 border border-gray-200/40 dark:border-gray-800/40 p-4 rounded-2xl shadow-sm">
-                <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="filter-container">
-                    <button onclick="setFilter('ALL')" class="filter-chip px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-brand-600 text-white border border-brand-600 shadow-md">All Nodes</button>
-                </div>
-                
-                <div class="relative min-w-[280px]">
-                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 pointer-events-none">
-                        <i class="fa-solid fa-magnifying-glass text-sm"></i>
-                    </span>
-                    <input type="text" id="stream-search" oninput="handleSearch(this.value)" placeholder="Search transit codes or destinations..." class="w-full pl-9 pr-4 py-2.5 text-xs bg-gray-50 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-800 rounded-xl text-gray-800 dark:text-gray-100 transition outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500">
-                </div>
-            </div>
-
-            <div id="skeleton-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white dark:bg-gray-900/40 rounded-3xl border border-gray-100 dark:border-gray-800/50 p-6 space-y-4">
-                    <div class="h-44 w-full bg-gray-200 dark:bg-gray-800/60 rounded-xl shimmer-effect relative overflow-hidden"></div>
-                    <div class="h-4 w-1/4 bg-gray-200 dark:bg-gray-800/60 rounded shimmer-effect relative overflow-hidden"></div>
-                    <div class="h-6 w-3/4 bg-gray-200 dark:bg-gray-800/60 rounded shimmer-effect relative overflow-hidden"></div>
-                    <div class="h-10 w-full bg-gray-200 dark:bg-gray-800/60 rounded shimmer-effect relative overflow-hidden"></div>
-                </div>
-                <div class="bg-white dark:bg-gray-900/40 rounded-3xl border border-gray-100 dark:border-gray-800/50 p-6 space-y-4">
-                    <div class="h-44 w-full bg-gray-200 dark:bg-gray-800/60 rounded-xl shimmer-effect relative overflow-hidden"></div>
-                    <div class="h-4 w-1/4 bg-gray-200 dark:bg-gray-800/60 rounded shimmer-effect relative overflow-hidden"></div>
-                    <div class="h-6 w-3/4 bg-gray-200 dark:bg-gray-800/60 rounded shimmer-effect relative overflow-hidden"></div>
-                    <div class="h-10 w-full bg-gray-200 dark:bg-gray-800/60 rounded shimmer-effect relative overflow-hidden"></div>
-                </div>
-            </div>
-
-            <div id="error-panel" class="hidden max-w-lg mx-auto bg-rose-500/10 border border-rose-500/20 text-rose-600 p-6 rounded-2xl text-center space-y-4">
-                <i class="fa-solid fa-triangle-exclamation text-3xl"></i>
-                <h3 class="text-lg font-bold">Sync Failure</h3>
-                <p class="text-xs opacity-90 leading-relaxed">The main server connection could not be established. Operating with standard localization caches.</p>
-                <button onclick="triggerDataSync()" class="inline-flex items-center gap-2 px-4 py-2 bg-rose-600 text-white rounded-xl text-xs font-semibold hover:bg-rose-700 transition">
-                    <i class="fa-solid fa-rotate"></i> Reload System Feed
-                </button>
-            </div>
-
-            <div id="data-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden"></div>
-
-            <div id="no-results" class="hidden text-center py-16 space-y-4">
-                <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-100 dark:bg-gray-800 text-gray-400">
-                    <i class="fa-solid fa-hourglass-empty text-xl"></i>
-                </div>
-                <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">No matching logistical nodes found</h3>
-                <p class="text-xs text-gray-400 max-w-xs mx-auto">Try typing another query or clearing active filters.</p>
-            </div>
-        </main>
-
-        <main id="page-ai-analyst" class="page-content hidden space-y-6">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                
-                <div class="lg:col-span-5 bg-white dark:bg-gray-900/40 p-6 rounded-3xl border border-gray-200/50 dark:border-gray-800/50 shadow-xl space-y-6 ai-glow">
-                    <div class="flex items-center gap-3">
-                        <div class="h-10 w-10 bg-emerald-500/10 text-brand-500 rounded-xl flex items-center justify-center">
-                            <i class="fa-solid fa-brain-circuit text-lg"></i>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-bold text-gray-900 dark:text-white leading-tight">✨ Gemini Intel Console</h2>
-                            <p class="text-[10px] uppercase text-gray-400 font-bold mono-text">Personal Token Sub-System</p>
-                        </div>
-                    </div>
-                    
-                    <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                        Query our lead tactical LLM trained in cross-border logistical feeds, flight anomalies, pricing arbitrage, global events, and high-priority travel coordinates.
-                    </p>
-
-                    <div class="p-3 bg-brand-50/50 dark:bg-brand-950/20 border border-brand-100 dark:border-brand-900/30 rounded-xl flex items-center justify-between text-xs">
-                        <span class="text-gray-500 dark:text-gray-400">Contextual Ingestion Feed:</span>
-                        <span class="font-bold text-brand-600 dark:text-brand-400 mono-text"><span id="ai-context-count">0</span> Nodes Ingested</span>
-                    </div>
-
-                    <div class="space-y-3">
-                        <h3 class="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold">Orbital Tactical Presets</h3>
-                        
-                        <button onclick="triggerPresetAI('briefing')" class="w-full flex items-center justify-between p-3.5 bg-gray-50 dark:bg-gray-900/60 border border-gray-200/50 dark:border-gray-800/50 rounded-2xl text-left text-xs transition hover:border-brand-500/30">
-                            <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-file-invoice text-brand-500"></i>
-                                <div>
-                                    <span class="block font-bold text-gray-800 dark:text-gray-200">✨ Synthesize Daily Briefing</span>
-                                    <span class="block text-[10px] text-gray-400 mt-0.5">Detect global threats & opportunities</span>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-right text-gray-300"></i>
-                        </button>
-
-                        <button onclick="triggerPresetAI('arbitrage')" class="w-full flex items-center justify-between p-3.5 bg-gray-50 dark:bg-gray-900/60 border border-gray-200/50 dark:border-gray-800/50 rounded-2xl text-left text-xs transition hover:border-brand-500/30">
-                            <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-scale-balanced text-brand-500"></i>
-                                <div>
-                                    <span class="block font-bold text-gray-800 dark:text-gray-200">✨ Arbitrage Intelligence Scanner</span>
-                                    <span class="block text-[10px] text-gray-400 mt-0.5">Identify highest travel arbitrage benefits</span>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-right text-gray-300"></i>
-                        </button>
-                    </div>
-
-                    <div class="space-y-2 border-t border-gray-200/40 dark:border-gray-800/40 pt-4">
-                        <label for="ai-custom-prompt" class="block text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold">Custom Tactical Query</label>
-                        <div class="relative">
-                            <textarea id="ai-custom-prompt" rows="3" placeholder="Ask AI to cross-reference routes, flights, or find hacks in active alerts..." class="w-full p-3 text-xs bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl outline-none text-gray-800 dark:text-gray-100 transition resize-none focus:border-brand-500"></textarea>
-                        </div>
-                        <button onclick="triggerCustomAIQuery()" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs font-semibold shadow-md flex items-center justify-center gap-2 transition">
-                            <i class="fa-solid fa-satellite-dish"></i> Broadcast Query to Gemini
-                        </button>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7 space-y-4">
-                    <div class="flex justify-between items-center bg-white dark:bg-gray-900/20 p-4 border border-gray-200/50 dark:border-gray-800/50 rounded-2xl text-xs">
-                        <div class="flex items-center gap-2">
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
-                            <span class="font-bold mono-text text-gray-800 dark:text-gray-200">Terminal Log Output</span>
-                        </div>
-                        <button onclick="copyTerminalOutput()" class="text-[10px] font-bold text-brand-600 dark:text-brand-400 hover:underline" id="btn-copy-terminal" disabled>Copy Terminal Output</button>
-                    </div>
-
-                    <div class="bg-white dark:bg-[#080d19] rounded-3xl border border-gray-200/60 dark:border-blue-900/20 shadow-2xl p-6 md:p-8 min-h-[460px] flex flex-col justify-between relative overflow-hidden">
-                        
-                        <div id="ai-loading-screen" class="hidden absolute inset-0 bg-[#F8FAFC]/90 dark:bg-[#030712]/90 backdrop-blur-sm z-30 flex flex-col items-center justify-center space-y-6">
-                            <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-brand-500"></div>
-                            <h4 class="text-sm font-bold text-gray-900 dark:text-white" id="ai-loader-title">Decrypting Logistical Coordinates...</h4>
-                        </div>
-
-                        <div class="relative z-10 flex-grow flex flex-col justify-between h-full">
-                            <div id="terminal-initial" class="flex-grow flex flex-col items-center justify-center text-center py-24 space-y-4 text-gray-400">
-                                <i class="fa-solid fa-network-wired text-3xl"></i>
-                                <p class="text-xs max-w-sm leading-relaxed">Establish encryption keys via top configuration profile button to deploy the custom tactical intelligence compiler.</p>
-                            </div>
-                            <div id="terminal-markdown-container" class="hidden flex-grow prose prose-sm dark:prose-invert max-w-none text-sm leading-relaxed text-gray-700 dark:text-gray-300 markdown-container select-text font-light"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </main>
-
-        <main id="page-about" class="page-content hidden">
-            <div class="max-w-3xl bg-white dark:bg-gray-900/40 p-6 md:p-10 rounded-3xl border border-gray-200/50 dark:border-gray-800/50 shadow-xl space-y-6">
-                <div class="inline-flex items-center justify-center p-3 bg-brand-500/10 text-brand-600 dark:text-brand-400 rounded-2xl">
-                    <i class="fa-solid fa-passport text-2xl"></i>
-                </div>
-                <h2 class="text-3xl font-extrabold tracking-tight">About The TravelButton</h2>
-                <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">The TravelButton operates as a high-performance, cross-border intelligence directory designed to track transit anomalies, logistical advantages, and premium corporate asset arbitrage across highly secure global networks.</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">By pulling operational points directly into a streamlined web experience, we bypass the noise of standard agency channels to deliver high-priority alerts instantaneously.</p>
-            </div>
-        </main>
-
-        <main id="page-contact" class="page-content hidden">
-            <div class="max-w-3xl bg-white dark:bg-gray-900/40 p-6 md:p-10 rounded-3xl border border-gray-200/50 dark:border-gray-800/50 shadow-xl space-y-6">
-                <div class="inline-flex items-center justify-center p-3 bg-brand-500/10 text-brand-600 dark:text-brand-400 rounded-2xl">
-                    <i class="fa-solid fa-shield-halved text-2xl"></i>
-                </div>
-                <h2 class="text-3xl font-extrabold tracking-tight">Secure Communications Terminal</h2>
-                <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">For secure routing pipelines, coordinate verification, or localized fleet assistance, establish direct handshakes via our secure endpoints:</p>
-                <div class="p-4 bg-gray-50 dark:bg-gray-900/60 rounded-2xl border border-gray-200/40 dark:border-gray-800/40 flex items-center gap-4">
-                    <div class="h-10 w-10 bg-brand-500/10 text-brand-600 dark:text-brand-400 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <span class="block text-[10px] text-gray-400 uppercase font-bold tracking-widest">Corporate Inquiries</span>
-                        <a href="mailto:thetravelbuttonhq@gmail.com" class="text-xs text-brand-600 dark:text-brand-400 font-bold hover:underline">thetravelbuttonhq@gmail.com</a>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <div class="filter-row">
+      <button class="fpill on" onclick="filterData('all', this)">All Feeds</button>
+      <button class="fpill" onclick="filterData('Flight', this)">Flights</button>
+      <button class="fpill" onclick="filterData('Accommodation', this)">Accommodation</button>
+      <button class="fpill" onclick="filterData('Hype Index', this)">Hype Index</button>
     </div>
 
-    <div id="alert-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" role="dialog" aria-modal="true">
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute inset-0 bg-[#030712]/50 backdrop-blur-sm transition-opacity" onclick="closeDrawer()"></div>
-            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-                <div class="pointer-events-auto w-screen max-w-md transform transition ease-in-out duration-300 translate-x-full" id="drawer-panel">
-                    <div class="flex h-full flex-col overflow-y-scroll bg-white dark:bg-gray-950 shadow-2xl border-l border-gray-200/50 dark:border-gray-800/50">
-                        <div class="relative h-64 flex-shrink-0">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 z-10"></div>
-                            <img id="drawer-img" class="h-full w-full object-cover" src="" alt="">
-                            <div id="drawer-gradient-fallback" class="absolute inset-0 bg-gradient-to-tr from-indigo-900 to-blue-700 hidden"></div>
-                            
-                            <div class="absolute top-4 right-4 z-20">
-                                <button onclick="closeDrawer()" class="h-8 w-8 bg-black/40 text-white rounded-full hover:bg-black/60 flex items-center justify-center transition">
-                                    <i class="fa-solid fa-xmark text-sm"></i>
-                                </button>
-                            </div>
-                            <div class="absolute bottom-4 left-6 right-6 z-20">
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span id="drawer-pillar" class="mono-text text-[9px] uppercase font-bold tracking-widest bg-brand-600 text-white px-2 py-0.5 rounded">Pillar</span>
-                                    <span id="drawer-date" class="text-[9px] text-gray-300 font-medium">Date</span>
-                                </div>
-                                <h2 id="drawer-title" class="text-xl md:text-2xl font-extrabold text-white leading-tight tracking-tight">Loading Node Detail...</h2>
-                            </div>
-                        </div>
+    <div class="card-grid" id="cardGrid"></div>
+  </section>
+</div>
 
-                        <div class="relative flex-1 py-6 px-6 md:px-8 space-y-6">
-                            <div class="space-y-3">
-                                <h3 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 font-extrabold">Intel Briefing</h3>
-                                <div id="drawer-notes" class="markdown-container text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light"></div>
-                            </div>
+<footer class="footer">
+  <div>TravelButton Secure Terminal</div>
+  <div style="opacity:0.5;">© 2026 Anti-Booking Intelligence Network</div>
+</footer>
 
-                            <div class="border-t border-gray-200/40 dark:border-gray-800/40 pt-6 space-y-3">
-                                <h3 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 font-extrabold">Partner Travelpayouts Interface</h3>
-                                <a id="drawer-affiliate-btn" href="#" target="_blank" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold text-center flex items-center justify-center gap-2 shadow-lg transition-all">
-                                    <i class="fa-solid fa-plane-departure"></i> Secure Optimal Booking Rate
-                                </a>
-                                <p class="text-[9px] text-gray-400 text-center leading-relaxed">Bypasses secondary routing fees to secure immediate booking rates.</p>
-                            </div>
+<script>
+'use strict';
 
-                            <div class="border-t border-gray-200/40 dark:border-gray-800/40 pt-6 space-y-4">
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-wand-magic-sparkles text-brand-500"></i>
-                                    <h3 class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 font-extrabold">AI Tactician Optimization</h3>
-                                </div>
-                                <div id="drawer-ai-block" class="bg-emerald-500/5 dark:bg-emerald-600/5 p-4 rounded-2xl border border-brand-500/10 dark:border-brand-900/20 space-y-3">
-                                    <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-normal">Analyze this specific node dynamically to generate structured mitigation parameters.</p>
-                                    <button onclick="triggerSingleAlertAI()" id="btn-single-ai" class="w-full py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition shadow">
-                                        Generate AI Strategy Report
-                                    </button>
+let currentFeed = [];
+let activeFilter = 'all';
 
-                                    <div id="drawer-ai-result-panel" class="hidden space-y-3 pt-3 border-t border-emerald-500/10">
-                                        <div class="flex justify-between items-center text-[10px] mono-text text-brand-500">
-                                            <span class="font-bold">✨ Tactical Evaluation Log</span>
-                                            <button onclick="copyDrawerAIContent()" class="hover:underline flex items-center gap-1"><i class="fa-regular fa-clipboard"></i> Copy AI Plan</button>
-                                        </div>
-                                        <div id="drawer-ai-output" class="markdown-container text-xs text-gray-600 dark:text-gray-300 leading-relaxed font-light space-y-2 select-text"></div>
-                                    </div>
-                                    <div id="drawer-ai-loader" class="hidden flex flex-col items-center justify-center py-6 space-y-3">
-                                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-500"></div>
-                                        <span class="text-[10px] mono-text text-gray-400">Consulting AI Satellite Matrix...</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+// Load stored settings on page run to avoid re-typing every time
+document.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("tb_base")) document.getElementById("baseId").value = localStorage.getItem("tb_base");
+  if (localStorage.getItem("tb_table")) document.getElementById("tableName").value = localStorage.getItem("tb_table");
+  if (localStorage.getItem("tb_token")) document.getElementById("token").value = localStorage.getItem("tb_token");
+  if (localStorage.getItem("tb_token")) saveCredentialsAndFetch();
+});
 
-                        <div class="border-t border-gray-200/40 dark:border-gray-800/40 px-6 py-4 bg-gray-50/50 dark:bg-gray-900/10 flex justify-between items-center text-[10px] mono-text text-gray-400">
-                            <span>TravelButton Command Secured</span>
-                            <span id="drawer-id">ID: TB-UNKNOWN</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+async function saveCredentialsAndFetch() {
+  const baseId = document.getElementById("baseId").value.trim();
+  const tableName = document.getElementById("tableName").value.trim();
+  const token = document.getElementById("token").value.trim();
+  
+  if(!baseId || !token) {
+    alert("Please completely supply both your Base ID and Personal Access Token.");
+    return;
+  }
 
-    <div id="key-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeKeyModal()"></div>
-        <div class="bg-white dark:bg-gray-900 rounded-3xl border border-gray-200 dark:border-gray-800 p-6 max-w-md w-full relative z-10 shadow-2xl space-y-4">
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2"><i class="fa-solid fa-key text-brand-500"></i> Local API Token Vault</h3>
-            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                To protect developer credit limits, this console requires your personal, free Google Gemini API Key. Your token is stored **locally inside your browser cache only** and is never sent to our repositories.
-            </p>
-            <div class="p-3 bg-brand-500/5 border border-brand-500/10 rounded-xl text-[11px] text-brand-600 dark:text-brand-400">
-                👉 Don't have a key? Get one totally free in 30 seconds at: <a href="https://aistudio.google.com/" target="_blank" class="underline font-bold hover:text-brand-700">Google AI Studio</a>
-            </div>
-            <div class="space-y-1">
-                <label class="block text-[10px] uppercase font-bold text-gray-400">Gemini API Key String</label>
-                <input type="password" id="user-key-input" placeholder="AIzaSy..." class="w-full p-2.5 bg-gray-50 dark:bg-gray-950 border dark:border-gray-800 rounded-xl text-xs outline-none focus:border-brand-500 text-gray-800 dark:text-gray-100">
-            </div>
-            <div class="flex gap-2 justify-end pt-2 text-xs">
-                <button onclick="clearSavedKey()" class="px-4 py-2 text-gray-500 hover:text-red-500 font-semibold transition">Remove Key</button>
-                <button onclick="saveUserKey()" class="px-4 py-2 bg-brand-600 text-white font-semibold rounded-xl shadow-md hover:bg-brand-700 transition">Save Key Configuration</button>
-            </div>
-        </div>
-    </div>
+  // Securely save metrics into the browser's localized screen cache
+  localStorage.setItem("tb_base", baseId);
+  localStorage.setItem("tb_table", tableName);
+  localStorage.setItem("tb_token", token);
 
-    <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+  const dot = document.getElementById("statusDot");
+  const lbl = document.getElementById("statusLabel");
+  lbl.textContent = "Connecting Live...";
+  
+  const url = `https://api.airtable.com/v0/${encodeURIComponent(baseId)}/${encodeURIComponent(tableName)}?maxRecords=50`;
 
-    <script>
-        const AIRTABLE_BASE_ID = 'appXGvgjygSmeuUCT'; 
-        const AIRTABLE_TABLE_NAME = 'Alerts'; 
-        const AIRTABLE_API_TOKEN = 'patzQKUo0MsGdjP0Q.f082f837a473a6bdfa9903d4c8d16b591a27a8f48b17db02eddec028471374a6';
-        
-        const THEME_STORAGE_KEY = 'thetravelbutton-theme';
-        const AI_KEY_STORAGE_KEY = 'thetravelbutton-user-api-key';
-
-        let allAlerts = [];
-        let filteredAlerts = [];
-        let uniquePillars = ['Flights', 'Rents', 'Events', 'Search Hype']; 
-        let activeFilter = 'ALL';
-        let searchQuery = '';
-        let countdownTime = 60;
-        let timerInterval = null;
-        let currentlyOpenRecord = null;
-
-        const pillarGradients = {
-            'flights': 'from-emerald-600 to-teal-500',
-            'rents': 'from-teal-600 to-cyan-600',
-            'events': 'from-emerald-700 to-green-600',
-            'search hype': 'from-green-600 to-emerald-500',
-            'hype': 'from-green-600 to-emerald-500',
-            'default': 'from-slate-700 to-slate-900'
-        };
-
-        function initApp() {
-            initTheme();
-            checkSavedKeyStatus();
-            fetchLiveAlerts();
-            startAutoPolling();
-        }
-
-        function initTheme() {
-            const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) {
-                document.documentElement.classList.remove('dark');
-                updateThemeBtn(false);
-            } else {
-                document.documentElement.classList.add('dark');
-                updateThemeBtn(true);
-            }
-        }
-
-        function toggleTheme() {
-            const isDark = document.documentElement.classList.toggle('dark');
-            localStorage.setItem(THEME_STORAGE_KEY, isDark ? 'dark' : 'light');
-            updateThemeBtn(isDark);
-        }
-
-        function updateThemeBtn(isDark) {
-            const btn = document.getElementById('theme-btn');
-            if(btn) {
-                btn.innerHTML = isDark ? `<i class="fa-regular fa-sun"></i>` : `<i class="fa-regular fa-moon"></i>`;
-            }
-        }
-
-        function checkSavedKeyStatus() {
-            const savedKey = localStorage.getItem(AI_KEY_STORAGE_KEY);
-            const badge = document.getElementById('key-status-badge');
-            const txt = document.getElementById('key-status-text');
-            if (savedKey && savedKey.trim().length > 10) {
-                badge.className = "flex items-center gap-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-emerald-500/20 transition";
-                txt.textContent = "AI Ready: Client Key Linked";
-            } else {
-                badge.className = "flex items-center gap-2 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-rose-500/20 transition";
-                txt.textContent = "AI Offline: Configure Key";
-            }
-        }
-
-        function openKeyModal() {
-            const modal = document.getElementById('key-modal');
-            const input = document.getElementById('user-key-input');
-            input.value = localStorage.getItem(AI_KEY_STORAGE_KEY) || "";
-            modal.classList.remove('hidden');
-        }
-        
-        function closeKeyModal() { document.getElementById('key-modal').classList.add('hidden'); }
-
-        function saveUserKey() {
-            const keyVal = document.getElementById('user-key-input').value.trim();
-            if(!keyVal) { showToast("Key cannot be blank.", "error"); return; }
-            localStorage.setItem(AI_KEY_STORAGE_KEY, keyVal);
-            checkSavedKeyStatus();
-            closeKeyModal();
-            showToast("Gemini Local Key Configured!", "success");
-        }
-
-        function clearSavedKey() {
-            localStorage.removeItem(AI_KEY_STORAGE_KEY);
-            checkSavedKeyStatus();
-            closeKeyModal();
-            showToast("Encryption keys deleted successfully.", "success");
-        }
-
-        function triggerClipboardCopy(text, successMessage = 'Copied to secure clipboard!') {
-            const tempInput = document.createElement('textarea');
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            try {
-                if (document.execCommand('copy')) showToast(successMessage, 'success');
-            } catch (err) {
-                showToast('Clipboard inaccessible.', 'error');
-            }
-            document.body.removeChild(tempInput);
-        }
-
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = `pointer-events-auto flex items-center gap-3 p-4 rounded-xl shadow-lg border text-xs font-semibold transform translate-y-2 opacity-0 transition-all duration-300 ${
-                type === 'success' 
-                    ? 'bg-emerald-50 dark:bg-emerald-950/90 text-emerald-800 dark:text-emerald-300 border-emerald-100 dark:border-emerald-800/40' 
-                    : 'bg-rose-50 dark:bg-rose-950/90 text-rose-800 dark:text-rose-300 border-rose-100 dark:border-rose-800/40'
-            }`;
-            const icon = type === 'success' 
-                ? '<i class="fa-solid fa-circle-check text-base text-emerald-500"></i>' 
-                : '<i class="fa-solid fa-circle-exclamation text-base text-rose-500"></i>';
-
-            toast.innerHTML = `${icon} <span class="flex-grow">${message}</span>`;
-            container.appendChild(toast);
-            setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-y-2');
-                setTimeout(() => toast.remove(), 300);
-            }, 3500);
-        }
-
-        function startAutoPolling() {
-            clearInterval(timerInterval);
-            countdownTime = 60;
-            timerInterval = setInterval(() => {
-                countdownTime--;
-                if (countdownTime <= 0) triggerDataSync();
-            }, 1000);
-        }
-
-        function triggerDataSync() { fetchLiveAlerts(); }
-
-        function switchPage(pageName) {
-            document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-link').forEach(el => {
-                el.classList.remove('text-brand-600', 'dark:text-brand-400', 'active');
-                el.classList.add('text-gray-500', 'dark:text-gray-400');
-            });
-            document.getElementById(`page-${pageName}`).classList.remove('hidden');
-            const targetNav = document.getElementById(`nav-${pageName}`);
-            if (targetNav) {
-                targetNav.classList.add('active', 'text-brand-600', 'dark:text-brand-400');
-                targetNav.classList.remove('text-gray-500', 'dark:text-gray-400');
-            }
-        }
-
-        async function fetchLiveAlerts() {
-            const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`;
-            const skeletonGrid = document.getElementById('skeleton-grid');
-            const errorPanel = document.getElementById('error-panel');
-            const dataGrid = document.getElementById('data-grid');
-
-            try {
-                const res = await fetch(url, { headers: { Authorization: `Bearer ${AIRTABLE_API_TOKEN}` } });
-                if (!res.ok) throw new Error('Network connection compromised.');
-                const data = await res.json();
-                
-                allAlerts = data.records || [];
-                errorPanel.classList.add('hidden');
-                
-                renderFiltersPanel();
-                renderHighlightsCarousel();
-                renderStreamFeed();
-
-                skeletonGrid.classList.add('hidden');
-                dataGrid.classList.remove('hidden');
-
-                const contextCount = document.getElementById('ai-context-count');
-                if (contextCount) contextCount.textContent = allAlerts.length;
-
-            } catch (error) {
-                console.error("Critical connection failure:", error);
-                skeletonGrid.classList.add('hidden');
-                dataGrid.classList.add('hidden');
-                errorPanel.classList.remove('hidden');
-                showToast("System offline. Check connectivity.", "error");
-            } finally {
-                startAutoPolling();
-            }
-        }
-
-        function getAffiliateLink(alertField) {
-            if (alertField.Affiliate_URL) return alertField.Affiliate_URL;
-            const queryParam = encodeURIComponent(alertField.Title || 'Travel Deals');
-            return `https://www.jetradar.com/?marker=12345&search_term=${queryParam}`;
-        }
-
-        function calculateTrend(title, notes, customTrend) {
-            if (customTrend) return customTrend.toLowerCase().includes('decrease') || customTrend.toLowerCase().includes('drop') ? 'decrease' : 'increase';
-            const combinedStr = `${title} ${notes}`.toLowerCase();
-            const savingsKeywords = ['drop', 'decrease', 'discount', 'saving', 'anomaly', 'cheap', 'down', '-'];
-            return savingsKeywords.some(word => combinedStr.includes(word)) ? 'decrease' : 'increase';
-        }
-
-        function parseTimestamp(record) {
-            const rawTime = record.createdTime || new Date().toISOString();
-            const dateObj = new Date(rawTime);
-            return dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) + ' • ' + dateObj.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
-        }
-
-        function renderHighlightsCarousel() {
-            const slider = document.getElementById('hot-deals-slider');
-            slider.innerHTML = '';
-            const dropDeals = allAlerts.filter(r => calculateTrend(r.fields.Title || '', r.fields.Notes || '', r.fields.Trend) === 'decrease').slice(0, 5);
-            const featuredItems = dropDeals.length > 0 ? dropDeals : allAlerts.slice(0, 5);
-
-            if (featuredItems.length === 0) {
-                slider.innerHTML = `<div class="p-4 text-xs text-gray-400">Waiting on system updates...</div>`;
-                return;
-            }
-
-            featuredItems.forEach(r => {
-                const f = r.fields, recordId = r.id, pillar = f.Pillar || 'Arbitrage';
-                const gradient = pillarGradients[pillar.toLowerCase()] || pillarGradients['default'];
-                slider.innerHTML += `
-                    <div class="flex-shrink-0 w-80 bg-gradient-to-tr ${gradient} text-white p-5 rounded-3xl shadow-xl flex flex-col justify-between hover:scale-[1.02] transition-transform duration-300 relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] pointer-events-none"></div>
-                        <div class="space-y-2 relative z-10">
-                            <div class="flex justify-between items-center">
-                                <span class="text-[9px] uppercase tracking-widest font-extrabold bg-white/20 px-2.5 py-0.5 rounded backdrop-blur">${pillar}</span>
-                                <span class="text-xs bg-emerald-500/30 text-emerald-300 px-2 py-0.5 rounded font-bold flex items-center gap-1"><i class="fa-solid fa-arrow-trend-down"></i> Deal</span>
-                            </div>
-                            <h3 onclick="openAlertDetail('${recordId}')" class="text-sm font-bold tracking-tight line-clamp-2 cursor-pointer hover:underline pt-1">${f.Title || 'Option Available'}</h3>
-                        </div>
-                        <div class="flex items-center justify-between mt-6 pt-3 border-t border-white/10 relative z-10">
-                            <button onclick="openAlertDetail('${recordId}')" class="text-[10px] uppercase tracking-wider font-extrabold text-white/90 hover:text-white">Details <i class="fa-solid fa-chevron-right text-[8px]"></i></button>
-                            <a href="${getAffiliateLink(f)}" target="_blank" class="px-3 py-1.5 bg-white text-emerald-700 hover:bg-brand-55 text-[10px] font-bold rounded-lg shadow transition">Book Rate <i class="fa-solid fa-plane text-[8px] ml-0.5"></i></a>
-                        </div>
-                    </div>`;
-            });
-        }
-
-        function renderFiltersPanel() {
-            const container = document.getElementById('filter-container');
-            let html = `<button onclick="setFilter('ALL')" class="filter-chip px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border ${activeFilter === 'ALL' ? 'bg-brand-600 text-white border-brand-600 shadow-md' : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300'}">All Nodes</button>`;
-            
-            uniquePillars.forEach(p => {
-                const sel = activeFilter.toLowerCase() === p.toLowerCase();
-                html += `<button onclick="setFilter('${p}')" class="filter-chip px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border capitalize ${sel ? 'bg-brand-600 text-white border-brand-600 shadow-md' : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300'}">${p}</button>`;
-            });
-            container.innerHTML = html;
-            document.getElementById('alert-counter').textContent = allAlerts.length;
-        }
-
-        function setFilter(filterValue) { activeFilter = filterValue; renderFiltersPanel(); renderStreamFeed(); }
-
-        function renderStreamFeed() {
-            const grid = document.getElementById('data-grid'), noResults = document.getElementById('no-results');
-            grid.innerHTML = '';
-
-            filteredAlerts = allAlerts.filter(r => {
-                const f = r.fields;
-                const matchesPillar = activeFilter === 'ALL' || (f.Pillar && f.Pillar.trim().toLowerCase() === activeFilter.toLowerCase());
-                const isSearching = searchQuery.length >= 3;
-                const matchesSearch = !isSearching || (f.Notes || '').toLowerCase().includes(searchQuery) || (f.Title || '').toLowerCase().includes(searchQuery);
-                return matchesPillar && matchesSearch;
-            });
-
-            if (filteredAlerts.length === 0) { grid.classList.add('hidden'); noResults.classList.remove('hidden'); return; }
-            noResults.classList.add('hidden'); grid.classList.remove('hidden');
-
-            filteredAlerts.forEach((r, idx) => {
-                const f = r.fields, recordId = r.id, pillar = f.Pillar || 'Update';
-                const trend = calculateTrend(f.Title || '', f.Notes || '', f.Trend);
-                const gradient = pillarGradients[pillar.toLowerCase()] || pillarGradients['default'];
-
-                grid.innerHTML += `
-                    <div class="glass-card rounded-3xl overflow-hidden flex flex-col h-full group relative">
-                        <div class="relative h-48 w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
-                            ${f.Graphic_URL ? `<img src="${f.Graphic_URL}" onclick="openAlertDetail('${recordId}')" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500 cursor-pointer" onerror="this.style.display='none'; document.getElementById('fallback-gradient-${idx}').classList.remove('hidden')">` : ''}
-                            <div id="fallback-gradient-${idx}" onclick="openAlertDetail('${recordId}')" class="absolute inset-0 bg-gradient-to-tr ${gradient} opacity-90 p-6 flex flex-col justify-between cursor-pointer ${f.Graphic_URL ? 'hidden' : ''}">
-                                <div class="text-white pt-12"><span class="text-[10px] uppercase font-bold text-white/70 tracking-widest">${pillar}</span><h4 class="text-lg font-bold line-clamp-1 leading-tight">${f.Title || 'Node'}</h4></div>
-                            </div>
-                            <div class="absolute top-4 left-4 z-20"><span class="text-[9px] font-extrabold tracking-widest uppercase text-white bg-black/40 backdrop-blur-md px-2.5 py-1 rounded">${pillar}</span></div>
-                            <div class="absolute top-4 right-4 z-20">${trend === 'decrease' ? '<span class="bg-emerald-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-xl shadow-lg shadow-emerald-500/20"><i class="fa-solid fa-arrow-trend-down"></i> - Drop</span>' : '<span class="bg-rose-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-xl shadow-lg shadow-rose-500/20"><i class="fa-solid fa-arrow-trend-up"></i> + Rise</span>'}</div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
-                            <div class="space-y-2">
-                                <h3 onclick="openAlertDetail('${recordId}')" class="text-lg font-bold text-gray-950 dark:text-white group-hover:text-brand-500 transition-colors line-clamp-2 cursor-pointer">${f.Title || 'Untitled Node'}</h3>
-                                <div class="flex items-center gap-2 text-[10px] uppercase font-extrabold tracking-wider text-brand-500 font-mono"><span>${pillar}</span><span class="text-gray-700">•</span><span class="text-gray-400">${parseTimestamp(r)}</span></div>
-                                <div class="markdown-container text-xs text-gray-500 dark:text-gray-400 line-clamp-3 leading-relaxed">${marked.parse(f.Notes || '')}</div>
-                            </div>
-                            <div class="pt-4 border-t border-gray-100 dark:border-gray-800/60 flex flex-col gap-3">
-                                <div class="flex items-center justify-between text-[10px] mono-text text-gray-400"><span class="flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-brand-500 animate-ping"></span>Live Node</span><span onclick="openAlertDetail('${recordId}')" class="cursor-pointer">Read Details <i class="fa-solid fa-chevron-right ml-1"></i></span></div>
-                                <a href="${getAffiliateLink(f)}" target="_blank" class="w-full text-center py-2.5 bg-slate-50 hover:bg-brand-50 dark:bg-gray-900/60 dark:hover:bg-brand-950/40 text-brand-600 dark:text-brand-400 border border-brand-500/20 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all"><i class="fa-solid fa-plane-departure text-[11px]"></i> Secure Route Rates</a>
-                            </div>
-                        </div>
-                    </div>`;
-            });
-            document.getElementById('alert-counter').textContent = allAlerts.length;
-        }
-
-        function openAlertDetail(recordId) {
-            const record = allAlerts.find(r => r.id === recordId);
-            if (!record) return;
-
-            currentlyOpenRecord = record;
-            const f = record.fields;
-
-            document.getElementById('drawer-title').textContent = f.Title || 'Untitled Pipeline';
-            document.getElementById('drawer-notes').innerHTML = marked.parse(f.Notes || '*No details uploaded*');
-            document.getElementById('drawer-pillar').textContent = f.Pillar || 'General';
-            document.getElementById('drawer-date').textContent = parseTimestamp(record);
-            document.getElementById('drawer-id').textContent = `ID: TB-${recordId.slice(-6).toUpperCase()}`;
-            document.getElementById('drawer-affiliate-btn').href = getAffiliateLink(f);
-
-            document.getElementById('drawer-ai-result-panel').classList.add('hidden');
-            document.getElementById('drawer-ai-output').innerHTML = '';
-            document.getElementById('drawer-ai-loader').classList.add('hidden');
-            document.getElementById('btn-single-ai').classList.remove('hidden');
-
-            const img = document.getElementById('drawer-img'), fallbackGrad = document.getElementById('drawer-gradient-fallback');
-            if (f.Graphic_URL) {
-                img.src = f.Graphic_URL; img.classList.remove('hidden'); fallbackGrad.classList.add('hidden');
-                img.onerror = () => { img.classList.add('hidden'); fallbackGrad.classList.remove('hidden'); };
-            } else {
-                img.classList.add('hidden'); fallbackGrad.className = `absolute inset-0 bg-gradient-to-tr ${pillarGradients[(f.Pillar || '').toLowerCase()] || pillarGradients['default']} opacity-90`; fallbackGrad.classList.remove('hidden');
-            }
-
-            document.getElementById('alert-drawer').classList.remove('hidden');
-            setTimeout(() => document.getElementById('drawer-panel').classList.remove('translate-x-full'), 50);
-        }
-
-        function closeDrawer() {
-            document.getElementById('drawer-panel').classList.add('translate-x-full');
-            setTimeout(() => document.getElementById('alert-drawer').classList.add('hidden'), 300);
-            currentlyOpenRecord = null;
-        }
-
-        function copyDrawerAIContent() {
-            const area = document.getElementById('drawer-ai-output');
-            if (area) triggerClipboardCopy(area.innerText, "Strategy Report Copied!");
-        }
-
-        async function fetchGeminiLlm(userPrompt, systemInstruction = "") {
-            const key = localStorage.getItem(AI_KEY_STORAGE_KEY);
-            if (!key || key.trim().length < 5) { openKeyModal(); throw new Error("Missing personal API key context."); }
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${key}`;
-            const payload = { contents: [{ parts: [{ text: userPrompt }] }] };
-            if (systemInstruction) payload.systemInstruction = { parts: [{ text: systemInstruction }] };
-
-            const response = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-            if (!response.ok) throw new Error("Google Handshake Failed. Check your configuration key.");
-            const res = await response.json();
-            return res.candidates?.[0]?.content?.parts?.[0]?.text || "No content returned.";
-        }
-
-        async function triggerSingleAlertAI() {
-            if (!currentlyOpenRecord) return;
-            const f = currentlyOpenRecord.fields;
-            const btn = document.getElementById('btn-single-ai'), loader = document.getElementById('drawer-ai-loader');
-            const panel = document.getElementById('drawer-ai-result-panel'), out = document.getElementById('drawer-ai-output');
-
-            btn.classList.add('hidden'); loader.classList.remove('hidden'); panel.classList.add('hidden');
-
-            const userPrompt = `Analyze context Group: ${f.Pillar || 'General'} Title: ${f.Title || 'Node'} Log: ${f.Notes || ''}. Provide Tactical Impact Score (1-10), Alternate Mitigation Options, and one target advice note.`;
-
-            try {
-                const res = await fetchGeminiLlm(userPrompt, "You are a senior cross-border risk manager.");
-                out.innerHTML = marked.parse(res);
-                panel.classList.remove('hidden');
-            } catch (e) { showToast(e.message, "error"); btn.classList.remove('hidden'); }
-            finally { loader.classList.add('hidden'); }
-        }
-
-        async function triggerPresetAI(type) {
-            if(allAlerts.length === 0) return;
-            const ctx = allAlerts.map(r => `Pillar: ${r.fields.Pillar}\nTitle: ${r.fields.Title}\nNotes: ${r.fields.Notes}`).join("\n---\n");
-            setTerminalLoading(true, type === 'briefing' ? "Compiling Global Intelligence Summary..." : "Evaluating Logistical Arbitrage Matrix...");
-            
-            const p = type === 'briefing' ? `Summarize these logs into direct structural items:\n${ctx}` : `Cross-reference rates and target loopholes within these data strings:\n${ctx}`;
-            try {
-                const res = await fetchGeminiLlm(p, "You are the primary operation officer at headquarters.");
-                displayTerminalOutput(res);
-            } catch(e) { showToast(e.message, "error"); }
-            finally { setTerminalLoading(false); }
-        }
-
-        async function triggerCustomAIQuery() {
-            const area = document.getElementById('ai-custom-prompt'), q = area.value.trim();
-            if(!q || allAlerts.length === 0) return;
-            const ctx = allAlerts.map(r => `Title: ${r.fields.Title}\nNotes: ${r.fields.Notes}`).join("\n---\n");
-
-            setTerminalLoading(true, "Querying Ingested Feed Matrices...");
-            try {
-                const res = await fetchGeminiLlm(`Logs:\n${ctx}\nQuery: ${q}`, "Answer strategy coordinates factual to the log context.");
-                displayTerminalOutput(res);
-                area.value = "";
-            } catch(e) { showToast(e.message, "error"); }
-            finally { setTerminalLoading(false); }
-        }
-
-        function setTerminalLoading(isLoad, msg="") {
-            const scr = document.getElementById('ai-loading-screen');
-            document.getElementById('ai-loader-title').textContent = msg || "Processing...";
-            isLoad ? scr.classList.remove('hidden') : scr.classList.add('hidden');
-        }
-
-        function displayTerminalOutput(txt) {
-            document.getElementById('terminal-initial').classList.add('hidden');
-            const el = document.getElementById('terminal-markdown-container');
-            el.classList.remove('hidden'); el.innerHTML = marked.parse(txt);
-            document.getElementById('btn-copy-terminal').removeAttribute('disabled');
-        }
-
-        function copyTerminalOutput() { if(activeTerminalText) triggerClipboardCopy(activeTerminalText, "Console text copied!"); }
-        
-        function verifyDeepLink() {
-            const id = new URLSearchParams(window.location.search).get('alert');
-            if (id && allAlerts.length > 0) setTimeout(() => openAlertDetail(id), 500);
-        }
-
-        window.onload = function() { initApp(); setTimeout(verifyDeepLink, 1000); };
-    </script>
-</body>
-</html>
+  try {
+    const res = await fetch(url, { headers: { "Authorization": `Bearer ${token}` } });
+    if (!res.ok)
